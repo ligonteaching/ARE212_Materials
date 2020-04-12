@@ -1,0 +1,78 @@
+#+TITLE:  Materials for ARE212
+#+AUTHOR: Ethan Ligon
+
+A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
+* General Policies
+** Readings
+  - "Hansen" refers to Gary Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].
+  - Unresolved references of the form "cite:foo84" or similar are keys
+    with values that can be looked up in
+    [[file:are212_materials.bib][are212_materials.bib]].  This last is a bibtex database which
+    you're free to use.  The bibtex file includes some links to pdf
+    files which you may find useful.
+* Videos
+  See [[https://www.youtube.com/playlist?list=PLggTyrP_mb2vM_lB05UMQ8m0ApCKdcKqA][ARE212 Youtube Channel]] for videos of lectures, etc.
+* Topics
+** Multiple Equation Models
+   - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/multiple_regression.pdf][Notes on Multiple Linear Equation Models]]
+   - Reading
+     - Hansen Ch. 11.  General contemporary reference on systems of
+       linear regressions.
+     - fullcite:haavelmo44.  Classic discussion of the "probability
+       approach" to estimating economic models; one of the key
+       documents distinguishing econometrics from statistics; one of
+       the key 
+     - fullcite:christ94.  Discussion of the birth of econometrics at
+       the Cowles Commission; beyond its historical importance, worth
+       reading to understand the source of much of the jargon we now use.
+     - cite:stock-trebbi03,wright1921,wright1928 (Appendix B).  On the
+       origins of instrumental variables.  The Wright papers are some
+       of the earliest and clearest discussions of identification.
+   - Jupyter notebooks
+     - [[file:random_variables0.ipynb][file:random_variables0.ipynb]]
+     - [[file:classical_regression.ipynb][classical_regression.ipynb]]
+     - [[file:weighted_regression.ipynb][file:weighted_regression.ipynb]]
+** Causality & Correlation
+   - [[file:causality_and_correlation.pdf][Notes on Causality & Correlation]]
+   - Reading
+     - fullcite:frisch30.  Highly insightful and only recently
+       published lectures Frisch gave at Yale in 1930.
+     - fullcite:haavelmo43.  A founding document of the structural
+       (Cowles Commission) approach to economics.
+     - fullcite:haavelmo44.  Classic statement regarding the
+       "probability approach" to economics.
+     - fullcite:goldberger72. Insightful, historically informed
+       reflections on identification of structural models in economics.
+     - fullcite:pearl15,heckman-pinto15,pearl13.  Back and forth between Pearl
+       & Heckman/Pinto.  They agree on one thing: Frisch & Haavelmo were right.
+     - fullcite:pearl09.  Pearl's textbook on causality.  
+     - fullcite:friedman53.  Classic essay on the usefulness of
+       "falsifying" economic models and the role of assumptions.
+     - Stanford Encyclopedia of Philosophy, [[https://stanford.library.sydney.edu.au/archives/sum2016/entries/induction-problem/]["The Problem of Induction"]]
+     - Hume, [[https://www.gutenberg.org/files/9662/9662-h/9662-h.htm][An enquiry concerning human understanding]]
+     - Sewell Wright
+       https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1200501/pdf/111.pdf
+     - fullcite:imbens-rubin15.  Up-to-date statement and discussion of
+       the Neyman-Rubin potential outcomes model, with focus on the assignment model.
+     - fullcite:heckman10.  Contemporary survey comparing "reduced
+       form" and "structural" approaches to causal inference.
+     - fullcite:heckman97.  Critique of potential outcome approach in
+       program evaluation.
+   - Jupyter notebooks
+     - [[file:wright34.ipynb][wright34.ipynb]]
+** Identification & Instrumental Variables
+   - [[file:iv_notes.pdf][Notes on Identification and Instrumental Variables]]
+   - Reading
+     - Hansen Chapter 12
+     - fullcite:angrist-krueger01
+     - fullcite:conley-etal12
+     - fullcite:chernozhukov-hansen08 
+   - Data
+     - [[file:angrist-krueger91.dta][Angrist-Krueger (1991)]]
+** Generalized Method of Moments
+   - [[file:gmm_notes.pdf][Notes on GMM]]
+   - Reading
+     - Hansen Chapter 13
+     - Review normal linear regression model (E.g., Hansen Chapter 5)
+     - fullcite:chamberlain87
+     - fullcite:newey-west87a
