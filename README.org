@@ -79,8 +79,9 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
 * Discussion Section
 ** Discussion Section Materials
      - [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen][Section Notes on R]] can be found on bcourses
+        - [[https://www.youtube.com/watch?v=DaKkXrj0SBE&feature=youtu.be][Zoom recording]] on March 20, 2020 (first remote section)
      - [[file:Section][Section Notes on Python]] can be found in the folder above
-        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2001.ipynb][Python 01.ipynb]]
-        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2002.ipynb][Python 02.ipynb]]
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2001.ipynb][Python 01.ipynb]] and the [[https://www.youtube.com/watch?v=OtRVZCCsFOw&feature=youtu.be][zoom recording]] on April 03, 2020
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2002.ipynb][Python 02.ipynb]] and the [[https://www.youtube.com/watch?v=sHr6WS0uCIs&feature=youtu.be][zoom recording]] on April 10, 2020
 
 #+LATEX: \printbibliography
