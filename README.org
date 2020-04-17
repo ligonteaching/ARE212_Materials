@@ -84,4 +84,11 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
         - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2001.ipynb][Python 01.ipynb]] and the [[https://www.youtube.com/watch?v=OtRVZCCsFOw&feature=youtu.be][zoom recording]] on April 03, 2020
         - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2002.ipynb][Python 02.ipynb]] and the [[https://www.youtube.com/watch?v=sHr6WS0uCIs&feature=youtu.be][zoom recording]] on April 10, 2020
 
+** Learning goals for this series of discussion sections
+    - Build off of skills we developed with R to provide a basic familiarity of coding in Python (and deepen your overall understanding of coding for econometrics in the process)
+    - Move from (potentially) no previous Python experience to being able to follow lecture applications and engage in bcourses discussions via Python
+
+** GSI expectations for the rest of the semester
+    - Office Hours are going to continue to be by appointment, and primarily via email.
+
 #+LATEX: \printbibliography
