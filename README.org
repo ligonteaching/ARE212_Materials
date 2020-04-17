@@ -98,6 +98,6 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
     - [[https://uhs.berkeley.edu/caps][Counseling and Psychological Services]]: These services continue to be available for all of us.  If you’re struggling, they’re here to help.  
        - Phone:  (510) 642-9494
        - Counseling after-hours support line:  (855) 817-5667
-    - [[https://www.crisistextline.org/][Crisis Text Line]]:  (Not affiliated with the University) For 24/7 support for those in crisis, text HOME to 741741 anywhere in the United States.
+    - [[https://www.crisistextline.org/][Crisis Text Line]]:  (Not affiliated with the University) For 24/7 support for those in crisis, text HOME to 741741 anywhere in the United States.  ``Social distancing may be lonely, but you’re not alone.``
 
 #+LATEX: \printbibliography
