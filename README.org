@@ -119,6 +119,7 @@ Meeting ID: 551 998 6624
      - [[file:Section][Section Notes on Python]] can be found in the folder above
         - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2001.ipynb][Python 01.ipynb]] and the [[https://www.youtube.com/watch?v=OtRVZCCsFOw&feature=youtu.be][zoom recording]] on April 03, 2020
         - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2002.ipynb][Python 02.ipynb]] and the [[https://www.youtube.com/watch?v=sHr6WS0uCIs&feature=youtu.be][zoom recording]] on April 10, 2020
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2003.ipynb][Python 03.ipynb]] on April 03, 2020
 
 ** Learning goals for this series of discussion sections
     - Build off of skills we developed with R to provide a basic familiarity of coding in Python (and deepen your overall understanding of coding for econometrics in the process)
