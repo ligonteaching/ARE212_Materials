@@ -89,6 +89,7 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
     - Move from (potentially) no previous Python experience to being able to follow lecture applications and engage in bcourses discussions via Python
 
 ** GSI expectations for the rest of the semester
+    - See the [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen?preview=76549701][Discussion Section Syllabus]] for general information.
     - Office Hours are going to continue to be by appointment, and primarily via email.
 
 #+LATEX: \printbibliography
