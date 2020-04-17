@@ -32,9 +32,6 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
      - [[file:random_variables0.ipynb][file:random_variables0.ipynb]]
      - [[file:classical_regression.ipynb][classical_regression.ipynb]]
      - [[file:weighted_regression.ipynb][file:weighted_regression.ipynb]]
-   - Discussion Section Materials
-     - [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen][Section Notes on R]] can be found on bcourses
-     - [[file:Section][folder:Section Notes on Python]] can be found in the folder above
 ** Causality & Correlation
    - [[file:causality_and_correlation.pdf][Notes on Causality & Correlation]]
    - Reading
@@ -79,5 +76,10 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
      - Review normal linear regression model (E.g., Hansen Chapter 5)
      - fullcite:chamberlain87
      - fullcite:newey-west87a
+** Discussion Section
+   - Discussion Section Materials
+     - [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen][Section Notes on R]] can be found on bcourses
+     - [[file:Section][Section Notes on Python]] can be found in the folder above
+        - [[file:Section/[ARE 212] Discussion Section - Python 01.ipynb][[ARE 212] Discussion Section - Python 01.ipynb]]
 
 #+LATEX: \printbibliography
