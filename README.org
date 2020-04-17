@@ -32,6 +32,9 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
      - [[file:random_variables0.ipynb][file:random_variables0.ipynb]]
      - [[file:classical_regression.ipynb][classical_regression.ipynb]]
      - [[file:weighted_regression.ipynb][file:weighted_regression.ipynb]]
+   - Discussion Section Materials
+     - [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen][Section Notes on R]] can be found on bcourses
+     - [[folder:Section][folder:Section Notes on Python]] can be found in the folder above
 ** Causality & Correlation
    - [[file:causality_and_correlation.pdf][Notes on Causality & Correlation]]
    - Reading
