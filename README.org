@@ -92,4 +92,12 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
     - See the [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen?preview=76549701][Discussion Section Syllabus]] for general information.
     - Office Hours are going to continue to be by appointment, and primarily via email.
 
+** Reminder of Additional Services and Support   
+    - [[https://news.berkeley.edu/coronavirus/][UC Berkeley Covid-19 News and Information]]
+    - [[https://grad.berkeley.edu/covid-19-information-for-graduate-students/][Covid-19 info for UC Berkeley Grad Students]]
+    - [[https://uhs.berkeley.edu/caps][Counseling and Psychological Services]]: These services continue to be available for all of us.  If you’re struggling, they’re here to help.  
+    Phone:  (510) 642-9494
+    Counseling after-hours support line:  (855) 817-5667
+    - [[https://www.crisistextline.org/][Crisis Text Line]]:  (Not affiliated with the University) For 24/7 support for those in crisis, text HOME to 741741 anywhere in the United States.
+
 #+LATEX: \printbibliography
