@@ -80,6 +80,7 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
 ** Discussion Section Materials
      - [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen][Section Notes on R]] can be found on bcourses
      - [[file:Section][Section Notes on Python]] can be found in the folder above
-        - [[file:\[ARE 212\] Discussion Section - Python 01.ipynb][\[ARE 212\] Discussion Section - Python 01.ipynb]]
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2001.ipynb][\[ARE 212\] Discussion Section - Python 01.ipynb]]
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2002.ipynb][\[ARE 212\] Discussion Section - Python 02.ipynb]]
 
 #+LATEX: \printbibliography
