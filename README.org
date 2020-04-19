@@ -76,5 +76,65 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
      - Review normal linear regression model (E.g., Hansen Chapter 5)
      - fullcite:chamberlain87
      - fullcite:newey-west87a
+* Discussion Section
+** When: Fridays 10:10-11am
+** Where: Zoom
+Benjamin Krause's Personal Meeting Room
+
+Join Zoom Meeting
+https://berkeley.zoom.us/j/5519986624
+
+Meeting ID: 551 998 6624
+One tap mobile
++16692192599,,5519986624# US (San Jose)
++16699006833,,5519986624# US (San Jose)
+
+Dial by your location
++1 669 219 2599 US (San Jose)
++1 669 900 6833 US (San Jose)
++1 312 626 6799 US (Chicago)
++1 646 558 8656 US (New York)
+Meeting ID: 551 998 6624
+Find your local number: https://berkeley.zoom.us/u/acIf9P8Yt
+
+Join by SIP
+5519986624@zoomcrc.com
+
+Join by H.323
+162.255.37.11 (US West)
+162.255.36.11 (US East)
+221.122.88.195 (China)
+115.114.131.7 (India Mumbai)
+115.114.115.7 (India Hyderabad)
+213.19.144.110 (EMEA)
+103.122.166.55 (Australia)
+209.9.211.110 (Hong Kong)
+64.211.144.160 (Brazil)
+69.174.57.160 (Canada)
+207.226.132.110 (Japan)
+Meeting ID: 551 998 6624
+** Discussion Section Materials
+     - [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen][Section Notes on R]] can be found on bcourses
+        - [[https://www.youtube.com/watch?v=DaKkXrj0SBE&feature=youtu.be][Zoom recording]] on March 20, 2020 (first remote section)
+     - [[file:Section][Section Notes on Python]] can be found in the folder above
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2001.ipynb][Python 01.ipynb]] and the [[https://www.youtube.com/watch?v=OtRVZCCsFOw&feature=youtu.be][zoom recording]] on April 03, 2020
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2002.ipynb][Python 02.ipynb]] and the [[https://www.youtube.com/watch?v=sHr6WS0uCIs&feature=youtu.be][zoom recording]] on April 10, 2020
+        - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/Section/%5BARE%20212%5D%20Discussion%20Section%20-%20Python%2003.ipynb][Python 03.ipynb]] on April 03, 2020
+
+** Learning goals for this series of discussion sections
+    - Build off of skills we developed with R to provide a basic familiarity of coding in Python (and deepen your overall understanding of coding for econometrics in the process)
+    - Move from (potentially) no previous Python experience to being able to follow lecture applications and engage in bcourses discussions via Python
+
+** GSI expectations for the rest of the semester
+    - See the [[https://bcourses.berkeley.edu/courses/1487913/files/folder/DiscussionSectionBen?preview=76549701][Discussion Section Syllabus]] for general information.
+    - Office Hours are going to continue to be by appointment, and primarily via email.
+
+** Reminder of Additional Services and Support   
+    - [[https://news.berkeley.edu/coronavirus/][UC Berkeley Covid-19 News and Information]]
+    - [[https://grad.berkeley.edu/covid-19-information-for-graduate-students/][Covid-19 info for UC Berkeley Grad Students]]
+    - [[https://uhs.berkeley.edu/caps][Counseling and Psychological Services]]: These services continue to be available for all of us.  If you’re struggling, they’re here to help.  
+       - Phone:  (510) 642-9494
+       - Counseling after-hours support line:  (855) 817-5667
+    - [[https://www.crisistextline.org/][Crisis Text Line]]:  (Not affiliated with the University) For 24/7 support for those in crisis, text HOME to 741741 anywhere in the United States.  ``Social distancing may be lonely, but you’re not alone.``
 
 #+LATEX: \printbibliography
