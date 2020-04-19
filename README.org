@@ -12,6 +12,10 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
     files which you may find useful.
 * Videos
   See [[https://www.youtube.com/playlist?list=PLggTyrP_mb2vM_lB05UMQ8m0ApCKdcKqA][ARE212 Youtube Channel]] for videos of lectures, etc.
+** HowTos
+   - GitHub :: How to view, files, fork, edit, and issue pull requests
+     (PRs).  https://youtu.be/krDQk5ZzP8U
+   - GitHub to DataHub :: How to use datahub to run & edit code from github:  https://youtu.be/lY4D-Li3UgY
 * Topics
 ** Multiple Equation Models
    - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/multiple_regression.pdf][Notes on Multiple Linear Equation Models]]
