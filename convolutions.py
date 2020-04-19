@@ -4,7 +4,8 @@ from scipy.stats import distributions as iid
 # Exploits =scipy.stats= base rv_discrete class.
 
 class ConvolvedDiscrete(iid.rv_discrete):
-    
+    """Class to convolve two discrete random variables.
+    """
     def __init__(self, r, s):
         self.discrete_rv1 = r
         self.discrete_rv2 = s
