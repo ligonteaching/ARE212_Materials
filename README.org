@@ -143,3 +143,5 @@ Meeting ID: 551 998 6624
 
 #+LATEX: \printbibliography
    - Jupyter notebook exploring [[https://github.com/ligonteaching/ARE212_Materials/blob/master/gmm_finite_samples.ipynb][GMM in finite samples]]
+     ([[http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching&repo=ARE212_Materials&branch=master&path=gmm_finite_samples.ipynb][open in datahub]])
+   
