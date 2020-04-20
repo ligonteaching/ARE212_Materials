@@ -3,6 +3,10 @@
 
 A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
 * General Policies
+** Grading
+*** Final Exam
+    The final exam will be "take-home", and be made available by 6pm on
+    Monday, May 11.  It will be due 24 hours later, by 6pm Tuesday May 12.
 ** Readings
   - "Hansen" refers to Gary Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].
   - Unresolved references of the form "cite:foo84" or similar are keys
