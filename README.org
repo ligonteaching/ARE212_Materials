@@ -149,7 +149,9 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
    - Jupyter notebook exploring GMM in finite samples
      ([[https://github.com/ligonteaching/ARE212_Materials/blob/master/gmm_finite_samples.ipynb][github]]/[[http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching&repo=ARE212_Materials&branch=master&path=gmm_finite_samples.ipynb][datahub]])
 ** Resampling & the Bootstrap
+  - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/bootstrapping_notes.pdf][Notes on Data Generating Processes and the Bootstrap]]
   - Reading
     - Hansen Chapter 10
+
    
 #+LATEX: \printbibliography
