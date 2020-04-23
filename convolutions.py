@@ -2,6 +2,8 @@ from scipy.stats import distributions as iid
 
 # Code to convolve two random variables having pmfs.
 # Exploits =scipy.stats= base rv_discrete class.
+#
+# Credit to ARE212 Spring 2020 for ConvolvedDiscrete Class.
 
 class ConvolvedDiscrete(iid.rv_discrete):
     """Class to convolve two discrete random variables.
