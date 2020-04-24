@@ -2,6 +2,9 @@
 #+AUTHOR: Ethan Ligon
 
 A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
+
+For class-related conversations, see the [[#are212 Slack channel][https://app.slack.com/client/T0106NWNRKP/CV98LELP5]]
+
 * General Policies
 ** Grading
 *** Final Exam
