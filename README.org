@@ -7,6 +7,40 @@ A pdf version of this file can be found at [[file:README.pdf][README.pdf]]
 *** Final Exam
     The final exam will be "take-home", and be made available by 6pm on
     Monday, May 11.  It will be due 24 hours later, by 6pm Tuesday May 12.
+*** Discussions
+    Given that group work is harder now, we'd like to try an
+    alternative to group problem sets, while still encouraging
+    collaboration.
+
+    So: for the 2nd half of the class, rather than completing several
+    formal problem sets, we ask you to participate in discussions on
+    bcourses (see the "Discussions" tab).
+
+    My intention is to post different discussion prompts every week.
+    There are two things (well, five) I then ask of you each week: 
+
+       - Respond to /two/ or more of my discussion prompts.  Posting a
+         response will "unlock" the discussion for that item for you,
+         so you'll be able to see the rest of the discussion thread.
+         Please post these responses earlier rather than later.
+
+       - Comment on at least /three/ of the posts responding to the
+         discussion prompt (i.e., comment on others comments).  A
+         livelier discussion will result if you don't wait until the
+         last minute to post these comments, so that there's some
+         opportunity for dialog.  
+ 
+    The goal here is to have constructive discussions, to help us all
+    in our thinking about interesting topics in econometrics.  Our
+    "grading" of your remarks will be restricting to counting them and
+    to noting when we think your remarks are good (we'll "like" them).
+    The bar for a good remark isn't really very high--we just want to
+    see that you're contributing constructively to the conversation.
+    We're basically looking for active, constructive participation.
+    It's perfectly fine for you to have little filler remarks, like
+    "great question!", but we'd hope to see other remarks with more
+    substantive thought or content.
+
 ** Readings
   - "Hansen" refers to Gary Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].
   - Unresolved references of the form "cite:foo84" or similar are keys
