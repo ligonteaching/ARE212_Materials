@@ -198,6 +198,7 @@ For class-related conversations, see the [[https://app.slack.com/client/T0106NWN
   - Hansen Chapter 23
   - Jupyter notebook comparing MLE & Nonlinear-IV estimation of a Logit model 
     ([[https://github.com/ligonteaching/ARE212_Materials/blob/master/gmm_logit.ipynb][github]]/[[http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching&repo=ARE212_Materials&branch=master&path=gmm_logit.ipynb][datahub]])
-
+  - Notes on [[https://github.com/ligonteaching/ARE212_Materials/blob/master/loss_penalty.pdf][Loss-Penalty Estimation]]
+  - Jupyter notebook on [[https://github.com/ligonteaching/ARE212_Materials/blob/master/linear-non-linear.ipynb][linear estimation of non-linear functions]] ([[http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching&repo=ARE212_Materials&branch=master&path=linear-non-linear.ipynb][datahub]])
    
 #+LATEX: \printbibliography
