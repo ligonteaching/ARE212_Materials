@@ -8,8 +8,8 @@ For class-related conversations, see the [[https://app.slack.com/client/T0106NWN
 * General Policies
 ** Grading
 *** Final Exam
-    The final exam will be "take-home", and be made available by 6pm on
-    Monday, May 11.  It will be due 24 hours later, by 6pm Tuesday May 12.
+    The final exam will be "take-home", and be made available by 11am on
+    Monday, May 11.  It will be due 24 hours later, by 11am Tuesday May 12.
 *** Discussions
     Given that group work is harder now, we'd like to try an
     alternative to group problem sets, while still encouraging
