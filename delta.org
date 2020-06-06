@@ -1,0 +1,191 @@
+* LASSO Estimation of $\delta(z)$
+  :PROPERTIES:
+  :EXPORT_FILE_NAME: delta_z_lasso.ipynb
+  :END:
+
+** Introduction
+  Consider the following data from Uganda, collected at the household
+  level.  The data itself is /recall/ data; the respondent is asked to
+  recall the value, the quantity, and the price of consumption out of
+  expenditures over the past week, for a rather long list of possible
+  non-durable expenditure items.  I've organized the data as an array,
+  with each row corresponding to a household, and each column
+  corresponding to a different consumption item.
+
+#+begin_src ipython :tangle /tmp/test.py
+import pandas as pd
+
+x = pd.read_parquet('~/Teaching/ARE212/Materials/uganda_expenditures.parquet')
+#+end_src
+
+  One thing to note about these data is the large number of "zeros".
+  This may reflect the fact that few households consume all different
+  kinds of consumption goods every week, or could reflect "missing"
+  data on non-zero expenditures (e.g., if the respondent forgot).
+
+#+begin_src ipython
+# Count of non-missing observations by year (t) and market (mkt)
+x.groupby(['t','mkt']).count().T
+#+end_src
+
+   Missing data can cause serious problems in a demand analysis,
+   depending on how and why data might be missing.  If observations
+   are "missing at random" (MAR) then it may be an easy issue to
+   address, but if the probability of being missing is related to the
+   disturbance term in the demand equation this becomes a sort of
+   selection problem that will complicate estimation and inference.
+
+** Household characteristics
+   One class of variables that may help to explain zeros are
+   "household characteristics"; this includes household size and
+   composition (both because this affects demand and perhaps because
+   there are more potential shoppers); whether a household is urban or
+   rural, and perhaps other characteristics.
+
+   Here are some characteristics for the households in Uganda:
+#+begin_src ipython :tangle /tmp/test.py
+z = pd.read_parquet('~/Teaching/ARE212/Materials/uganda_hh_characteristics.parquet')
+z
+#+end_src
+
+** Data mining
+
+   Unfortunately, demand theory doesn't offer much guidance to let us
+   know how household characteristics should be related to the
+   probability of a goods' consumption being positive in a given week;
+   this is a case where a certain amount of "data mining" may be a
+   reasonable approach.
+
+   We'll use tools we've discussed in class, relying on an
+   implementation given by the =scikit.learn= project.  In the first
+   instance, let's consider simply estimating a logit, where the
+   dependent variable is simply a dummy indicating that the
+   expenditure of a given good $i$ for a household $j$ at time $t$ is
+   positive, and where the right-hand-side variables are all the
+   household characteristics in =z=, combined with a collection of
+   time dummies (which we can think of as picking up the influence of
+   prices, among other things):
+#+begin_src ipython :tangle /tmp/test.py
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+
+time_effects = pd.get_dummies(z.reset_index()[['t']].set_index(z.index),columns=['t'])
+
+X = pd.concat([z,time_effects],axis=1).dropna(how='any') # Drop missing data
+x = x.dropna(how='all',axis=1)
+
+# Here's a good place to limit the number of dependent variables
+# if we want to save time.  We select just the first few columns:
+x = x.iloc[:,:5]
+
+regression = Pipeline([('poly',PolynomialFeatures(degree=2)),
+                       ('model',LinearRegression(fit_intercept=False,n_jobs=-1))])
+
+Ests = {}
+for item in x: # Iterate over dummies indicating positive expenditure
+    y = (x>0)[item]  # Dummy for non-missing item expenditures
+    Ests[item] = regression.fit(X,y)
+#+end_src
+
+*** Coefficients
+
+This gives us a vector of coefficients for each good, which we can
+re-arrange into a pandas DataFrame.  Recall that in the logit model
+$e^{X\beta}$ is interpreted as the /odds/.  Thus, for a variable in
+$X$ which is itself a logarithm, like log HSize, the associated
+coefficient can be interpreted as an elasticity.  Accordingly, if the
+coefficient on log HSize in the regression involving Matoke is 0.6,
+then we can say that for every one percent increase in household size
+(other things equal) there's roughly a 0.6% increase in the odds of
+observing positive Matoke consumption.  
+
+Coefficients associated with variables in levels have the
+interpetation of /semi-elasticities/; thus, the odds of a rural
+household consuming Matoke are approximately 53% less than that for
+the average household in the sample.  What is the interpretation of
+the coefficients associated with discrete counts of different
+household members?
+
+#+begin_src ipython :tangle /tmp/test.py
+labels = Ests['Matoke']['poly'].get_feature_names()
+Coefs = pd.DataFrame({i:Ests[i]['model'].coef_.squeeze() for i in Ests.keys()},index=labels)
+Coefs
+#+end_src
+
+
+*** Cross-Validation & Lasso
+
+Interpreting the coefficients above allows us to think about how
+differences in household characteristics affect the odds of consuming
+a particular good, but our original concern was that the data might
+not be /missing at random/, which could complicate subsequent
+estimation of a demand system.  
+
+Here we use Lasso & cross-validation to tune the Lasso penalty
+parameter to check which (if any) of our regressors is useful for
+out-of-sample prediction.  
+
+We again use a canned routine from sklearn, =Lasso=
+This bundles both the Lasso penalty criterion and cross-validation
+together for us, and searches over a list of penalty parameters to
+minimize the EMSE, computed via \(K\)-fold cross-validation.
+#+begin_src ipython :tangle /tmp/test.py
+from sklearn.linear_model import LassoLarsCV
+import numpy as np
+
+Lambdas = np.logspace(-5,5,11)
+
+regression = Pipeline([('poly',PolynomialFeatures(degree=2)),
+                       ('model',LassoLarsCV(cv=5,fit_intercept=False,n_jobs=-1))])
+
+CVEsts = {}
+for item in x: # Iterate over dummies indicating positive expenditure
+    print(item)
+    y = (x>0)[item]  # Dummy for non-missing item expenditures
+
+    # Use 5-fold cross-validation in computing CV statistics; using
+    # penalty 'l1' implies a lasso estimator.
+    CVEsts[item] = regression.fit(X,y)
+
+CVCoefs = pd.DataFrame({i:CVEsts[i]['model'].coef_.squeeze() for i in CVEsts.keys()},index=labels)
+CVCoefs
+#+end_src
+
+We can see how the estimated coefficients vary with different choices
+of the penalty parameter $\lambda$ ($=1/C$).  Consider just the
+coefficients associated with estimation of the Matoke logit: If we try
+$P$ different values of the penalty parameter using \(K\)-fold
+cross-validation this will be $KP$ different estimates for every
+parameter.  We can average over the $K$ different folds to get a
+clearer picture of how coefficients vary with \lambda
+#+begin_src ipython
+pd.DataFrame(CVEsts['Matoke'].coefs_paths_[True].mean(axis=0),index=Lambdas.tolist(),columns=X.columns).T
+#+end_src
+and see also how the EMSE varies with $\lambda$
+#+begin_src ipython
+EMSEs={k:-e.scores_[True].mean(axis=0).ravel() for k,e in CVEsts.items()} 
+
+EMSEs = pd.DataFrame(EMSEs,index=np.log(Lambdas).tolist()).T
+EMSEs
+#+end_src
+
+Plotting these versus $\log\lambda$:
+#+begin_src ipython
+EMSEs.T.plot()
+#+end_src
+Finding the minima of these curves gives estimates of the optimal
+\lambda:
+#+begin_src ipython
+lambda_star = pd.Series({k:1/e.C_[0] for k,e in CVEsts.items()})
+lambda_star
+#+end_src
+Large values of \lambda encourage parsimony in the selection of
+regressors, so it's not surprising to find that consumption items with
+large values of $\lambda^*$  also have few regressors (this is the
+magic of Lasso):
+#+begin_src ipython
+Lasso_outcomes = pd.DataFrame({'#Regressors':(np.abs(CVCoefs)>1e-5).sum(),
+                               'λ*':lambda_star})
+Lasso_outcomes
+#+end_src
