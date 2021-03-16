@@ -4,6 +4,8 @@
 For class-related conversations, please go to [[https://piazza.com/class/km9z4xiuham24j][piazza.com]].
 
 * General Policies
+  Discussion of administrative issues: [[[https://drive.google.com/file/d/1lrcl99dxnaH2APiQ7d5EwppcpMbhpM8-][video]]]
+
 ** Grading
 *** Final Exam
     The final exam will be "take-home", and be made available by 11am on
@@ -41,7 +43,7 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
     substantive thought or content.
 
 ** Readings
-  - "Hansen" refers to Gary Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].
+  - "Hansen" refers to Bruce Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].
   - Unresolved references of the form "cite:foo84" or similar are keys
     with values that can be looked up in
     [[file:are212.bib][are212.bib]].  This last is a bibtex database which
@@ -54,8 +56,10 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
    - GitHub to DataHub :: How to use datahub to run & edit code from github:  https://youtu.be/HBM8jgvYPtA
 ** Lectures                                                        :noexport:
 * Topics
+   Discussion of topics for 2nd half of course: [[https://drive.google.com/file/d/1MmyeW71lNVixYoXcuJTHjdBk-Fu7kpq_][[video]]]
+ 
 ** Multiple Equation Models
-   - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/multiple_regression.pdf][Notes on Multiple Linear Equation Models]]
+   - Lecture: Multiple Linear Equation Models I [[https://github.com/ligonteaching/ARE212_Materials/blob/master/multiple_regression.pdf][[pdf]]][[[https://drive.google.com/file/d/1ULO_v8_g-lIWLdU0af7SW_kax_8vht5o][video]]]
    - Reading
      - Hansen Ch. 11.  General contemporary reference on systems of
        linear regressions.
