@@ -116,13 +116,14 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
      - [[file:wright34.ipynb][wright34.ipynb]]
 ** Identification & Instrumental Variables
    - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/iv_notes.pdf][Notes on Identification and Instrumental Variables]]
+
    - Reading
      - Hansen Chapter 12
      - fullcite:angrist-krueger01
      - fullcite:conley-etal12
-     - fullcite:chernozhukov-hansen08 
+     - fullcite:chernozhukov-hansen08  
    - Data
-     - [[file:angrist-krueger91.dta][Angrist-Krueger (1991)]]
+     - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/angrist-krueger91.dta][Angrist-Krueger (1991)]]
 ** Generalized Method of Moments
    - [[https://github.com/ligonteaching/ARE212_Materials/blob/master/gmm_notes.pdf][Notes on GMM]]
    - Reading
