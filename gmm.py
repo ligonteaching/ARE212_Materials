@@ -2,7 +2,7 @@ import numpy as np
 from numpy.linalg import inv
 from scipy.optimize import minimize_scalar, minimize
 
-__version__ = 0.2
+__version__ = 0.2.1
 
 def gj(b,data):
     """Observations of g_j(b).
@@ -80,18 +80,28 @@ class GMM(object):
 
         return N*m.T@W@m # Scale by sample size
 
+    def one_step_gmm(self,W=None,b_init=None):
+
+        if W is None and self.W is not None:
+            W = self.W
+
+        if b_init is None and self.b_init is not None:
+            b_init = self.b_init
+
+        b = self.minimize(lambda b: self.J(b,W),b_init=b_init)
+
+        return b,self.J(b,W)
+    
     def two_step_gmm(self):
 
         # First step uses identity weighting matrix
-        W1 = np.eye(self.ell)
-
-        b1 = self.minimize(lambda b: self.J(b,W1))
+        b1 = one_step_gmm(self,np.eye(self.ell))[0]
 
         # Construct 2nd step weighting matrix using
         # first step estimate of beta
         W2 = inv(self.Omegahat(b1))
 
-        return self.minimize(lambda b: self.J(b,W2),b_init=b1)
+        return one_step_gmm(self,W2,b_init=1)
 
     def continuously_updated_gmm():
 
