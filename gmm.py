@@ -1,116 +1,99 @@
 import numpy as np
 from numpy.linalg import inv
 from scipy.optimize import minimize_scalar, minimize
+from scipy.optimize import minimize as scipy_min
 
-__version__ = 0.2.1
+__version__ = "0.3"
 
-def gj(b,data):
+######################################################
+# Beginning of procedural version of gmm routines
+def gj(b,y,X,Z):
     """Observations of g_j(b).
 
     This defines the deviations from the predictions of our model; i.e.,
-    e_j = Z_ju_j, where EZ_ju_j=0.
+    e_j = Z_ju_j, where EZ_ju_j=0 for *each observation*.
+
+    Returns an Nxl matrix (observaions x moment conditions).
 
     Can replace this function to testimate a different model.
+
+    If passed value of b is a scalar expand to make a k-vector.
     """
-    y,X,Z = data
+
+    # Construct vector of identical parameter if b a scalar.
+    if np.isscalar(b): b = np.array([b]*X.shape[1])
+        
     return Z*(y - X*b)
 
-class GMM(object):
+def gN(b,data,gj=gj):
+    """Averages of g_j(b).
 
-    def __init__(self,gj,data,B,W=None):
-        """GMM problem for restrictions E(gj(b0))=0, estimated using data with b0 in R^k.
+    This is generic for data, to be passed to gj.
+    """
+    e = gj(b,*data)
 
-           - If supplied B is a positive integer k, then 
-             space taken to be R^k.  
-           - If supplied B is a k-vector, then
-             parameter space taken to be R^k with B a possible
-             starting value for optimization.
-        """
-        self.gj = gj
-        self.data = data
-
-        self.W = W
-
-        try:
-            self.k = len(B)
-            self.b_init = np.array(B)
-        except TypeError:
-            self.k = B
-            self.b_init = np.zeros(self.k)
-
-        self.ell = gj(self.b_init,self.data).shape[1]
-
-        if type(data) is tuple:
-            self.N = data[0].shape[0]
-        else:
-            self.N = data.shape[0]
-
-        if self.k == 1:
-            self.minimize = lambda f: minimize_scalar(f).x
-        else:
-            self.minimize = lambda f,b_init=self.b_init: minimize(f,b_init).x
-            
-            
-    def gN(self,b):
-        """Averages of g_j(b).
-
-        This is generic for data, to be passed to gj.
-        """
-        e = self.gj(b,self.data)
-
-        # Check to see more obs. than moments.
-        assert e.shape[0] > e.shape[1]
-
-        return e.mean(axis=0)
-
-    def Omegahat(self,b):
-
-        e = self.gj(b,self.data)
-
-        # Recenter! We have Eu=0 under null.
-        # Important to use this information.
-        e = e - e.mean(axis=0) 
-
-        return e.T@e/e.shape[0]
-
-    def J(self,b,W):
-
-        m = self.gN(b) # Sample moments @ b
-        N = self.N
-
-        return N*m.T@W@m # Scale by sample size
-
-    def one_step_gmm(self,W=None,b_init=None):
-
-        if W is None and self.W is not None:
-            W = self.W
-
-        if b_init is None and self.b_init is not None:
-            b_init = self.b_init
-
-        b = self.minimize(lambda b: self.J(b,W),b_init=b_init)
-
-        return b,self.J(b,W)
+    # Check to see more obs. than moments.
+    assert e.shape[0] > e.shape[1]
     
-    def two_step_gmm(self):
+    return e.mean(axis=0)
 
-        # First step uses identity weighting matrix
-        b1 = one_step_gmm(self,np.eye(self.ell))[0]
+def Omegahat(b,data,gj=gj):
+    e = gj(b,*data)
 
-        # Construct 2nd step weighting matrix using
-        # first step estimate of beta
-        W2 = inv(self.Omegahat(b1))
+    # Recenter! We have Eu=0 under null.
+    # Important to use this information.
+    e = e - e.mean(axis=0) 
+    
+    return e.T@e/e.shape[0]
 
-        return one_step_gmm(self,W2,b_init=1)
+def J(b,W,data,gj=gj):
 
-    def continuously_updated_gmm():
+    m = gN(b,data,gj=gj) # Sample moments @ b
+    N = data[0].shape[0]
 
-        # First step uses identity weighting matrix
-        W = lambda b: np.inv(self.Omegahat(b))
+    return N*m.T@W@m # Scale by sample size
 
-        bhat = self.minimize(lambda b: self.J(b,W(b)))
+def minimize(f,b_init=None):
+    if b_init is None:
+        return minimize_scalar(f).x
+    else:
+        return scipy_min(f,b_init).x
 
-        return bhat
+def one_step_gmm(data,W=None,b_init=None,gj=gj):
+
+    if b_init is None:
+        b_init = 0
+
+    if W is None:
+        W = np.eye(gj(b_init,*data).shape[1])
+
+    b = minimize(lambda b: J(b,W,data,gj=gj),b_init=b_init)
+
+    return b, J(b,W,data,gj=gj)
+
+def two_step_gmm(data,b_init=None,gj=gj):
+
+    # First step uses identity weighting matrix
+    b1 = one_step_gmm(data,b_init,gj=gj)[0]
+
+    # Construct 2nd step weighting matrix using
+    # first step estimate of beta
+    W2 = inv(Omegahat(b1,data,gj=gj))
+
+    return one_step_gmm(data,b_init=b1,W=W2,gj=gj)
+
+def continuously_updated_gmm(data,b_init=None,gj=gj):
+
+    # First step uses identity weighting matrix
+    W = lambda b: np.inv(Omegahat(b,data,gj=gj))
+
+    bhat = minimize(lambda b: J(b,W(b),data,gj=gj))
+
+    return bhat
 
 def print_version():
     print(__version__)
+
+# End of procedural version of gmm routines
+######################################################
+
