@@ -13,6 +13,7 @@ class GMM(object):
              starting value for optimization.
         """
         self.gj = gj
+        gmm.gj = gj  # Overwrite member of gmm module
         self.data = data
 
         self.W = W
@@ -38,24 +39,28 @@ class GMM(object):
 
         This is generic for data, to be passed to gj.
         """
-        return gmm.gN(b,self.data,gj=self.gj)
+        return gmm.gN(b,self.data)
 
     def Omegahat(self,b):
 
-        return gmm.Omegahat(b,self.data,gj=self.gj)
+        return gmm.Omegahat(b,self.data)
     
     def J(self,b,W):
 
-        return gmm.J(b,W,self.data,gj=self.gj)
+        return gmm.J(b,W,self.data)
 
     def one_step_gmm(self,W=None,b_init=None):
 
-        return gmm.one_step_gmm(self.data,W,b_init,gj=self.gj)
+        return gmm.one_step_gmm(self.data,W,b_init=self.b_init)
     
     def two_step_gmm(self):
 
-        return gmm.two_step_gmm(self.data,b_init,gj=self.gj)
+        return gmm.two_step_gmm(self.data)
 
-    def continuously_updated_gmm():
+    def continuously_updated_gmm(self):
 
-        return gmm.continuously_updated_gmm(self.data,b_init,gj=self.gj)
+        return gmm.continuously_updated_gmm(self.data,b_init=self.b_init)
+
+
+if __name__=='__main__':
+    foo = GMM(gmm.gj,

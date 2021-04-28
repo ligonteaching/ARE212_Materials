@@ -7,7 +7,7 @@ __version__ = "0.3.1"
 
 ######################################################
 # Beginning of procedural version of gmm routines
-def gj(b,y,X,Z):
+def gj(b,data):
     """Observations of g_j(b).
 
     This defines the deviations from the predictions of our model; i.e.,
@@ -19,9 +19,10 @@ def gj(b,y,X,Z):
 
     If passed value of b is a scalar expand to make a k-vector.
     """
-
+    y,X,Z = data
+    
     # Construct vector of identical parameter if b a scalar.
-    if np.isscalar(b): b = np.array([b]*X.shape[1])
+    if np.isscalar(b): b = np.array([b]*X.shape[1]).reshape((-1,1))
         
     return Z*(y - X*b)
 
@@ -30,7 +31,7 @@ def gN(b,data):
 
     This is generic for data, to be passed to gj.
     """
-    e = gj(b,*data)
+    e = gj(b,data)
 
     # Check to see more obs. than moments.
     assert e.shape[0] > e.shape[1]
@@ -38,7 +39,7 @@ def gN(b,data):
     return e.mean(axis=0).reshape((-1,1))
 
 def Omegahat(b,data):
-    e = gj(b,*data)
+    e = gj(b,data)
 
     # Recenter! We have Eu=0 under null.
     # Important to use this information.
@@ -65,7 +66,7 @@ def one_step_gmm(data,W=None,b_init=None):
         b_init = 0
 
     if W is None:
-        W = np.eye(gj(b_init,*data).shape[1])
+        W = np.eye(gj(b_init,data).shape[1])
 
     b = minimize(lambda b: J(b,W,data),b_init=b_init)
 
