@@ -3,7 +3,7 @@ from numpy.linalg import inv
 from scipy.optimize import minimize_scalar, minimize
 from scipy.optimize import minimize as scipy_min
 
-__version__ = "0.3"
+__version__ = "0.3.1"
 
 ######################################################
 # Beginning of procedural version of gmm routines
@@ -25,7 +25,7 @@ def gj(b,y,X,Z):
         
     return Z*(y - X*b)
 
-def gN(b,data,gj=gj):
+def gN(b,data):
     """Averages of g_j(b).
 
     This is generic for data, to be passed to gj.
@@ -35,9 +35,9 @@ def gN(b,data,gj=gj):
     # Check to see more obs. than moments.
     assert e.shape[0] > e.shape[1]
     
-    return e.mean(axis=0)
+    return e.mean(axis=0).reshape((-1,1))
 
-def Omegahat(b,data,gj=gj):
+def Omegahat(b,data):
     e = gj(b,*data)
 
     # Recenter! We have Eu=0 under null.
@@ -46,12 +46,12 @@ def Omegahat(b,data,gj=gj):
     
     return e.T@e/e.shape[0]
 
-def J(b,W,data,gj=gj):
+def J(b,W,data):
 
-    m = gN(b,data,gj=gj) # Sample moments @ b
+    m = gN(b,data) # Sample moments @ b
     N = data[0].shape[0]
 
-    return N*m.T@W@m # Scale by sample size
+    return (N*m.T@W@m).squeeze() # Scale by sample size
 
 def minimize(f,b_init=None):
     if b_init is None:
@@ -59,7 +59,7 @@ def minimize(f,b_init=None):
     else:
         return scipy_min(f,b_init).x
 
-def one_step_gmm(data,W=None,b_init=None,gj=gj):
+def one_step_gmm(data,W=None,b_init=None):
 
     if b_init is None:
         b_init = 0
@@ -67,27 +67,27 @@ def one_step_gmm(data,W=None,b_init=None,gj=gj):
     if W is None:
         W = np.eye(gj(b_init,*data).shape[1])
 
-    b = minimize(lambda b: J(b,W,data,gj=gj),b_init=b_init)
+    b = minimize(lambda b: J(b,W,data),b_init=b_init)
 
-    return b, J(b,W,data,gj=gj)
+    return b, J(b,W,data)
 
-def two_step_gmm(data,b_init=None,gj=gj):
+def two_step_gmm(data,b_init=None):
 
     # First step uses identity weighting matrix
-    b1 = one_step_gmm(data,b_init,gj=gj)[0]
+    b1 = one_step_gmm(data,b_init=b_init)[0]
 
     # Construct 2nd step weighting matrix using
     # first step estimate of beta
-    W2 = inv(Omegahat(b1,data,gj=gj))
+    W2 = inv(Omegahat(b1,data))
 
-    return one_step_gmm(data,b_init=b1,W=W2,gj=gj)
+    return one_step_gmm(data,W=W2,b_init=b1)
 
-def continuously_updated_gmm(data,b_init=None,gj=gj):
+def continuously_updated_gmm(data,b_init=None):
 
     # First step uses identity weighting matrix
-    W = lambda b: np.inv(Omegahat(b,data,gj=gj))
+    W = lambda b: np.inv(Omegahat(b,data))
 
-    bhat = minimize(lambda b: J(b,W(b),data,gj=gj))
+    bhat = minimize(lambda b: J(b,W(b),data))
 
     return bhat
 
