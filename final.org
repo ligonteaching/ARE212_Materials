@@ -14,11 +14,10 @@
 #+language: en
 #+select_tags: export
 #+exclude_tags: noexport
-#+creator: Emacs 26.3.50 (Org mode 9.3.6)
 
 * Introduction                                                       :ignore:
   This is the final exam for ARE212, covering material from the second
-  half of the course taught in Spring 2020.   The exam is
+  half of the course taught in Spring 2021.   The exam is
   "take-at-home"; you may consult any resources you wish in completing
   it (notes, textbooks, lecture videos, etc.) except for other
   people.  This last restriction isn't easily enforceable; I rely on
@@ -26,7 +25,7 @@
   Berkeley Honor Code.
 
   More guidance:
-  - The exam is due at 11am  on Tuesday May 12.
+  - The exam is due at 11am  on Tuesday May 11.
   - In completing the exam you should develop written arguments
     (e.g., expressed using \LaTeX{} or pencil and paper).  In some cases
     you may wish to supplement these written arguments with
@@ -37,64 +36,162 @@
     materials you submit are well-organized and clearly
     documented---if I overlook some file you've sent or can't run it
     that's on you.
-  - You are welcome to use arguments developed in our =bcourses=
-    discussion, but in this case please clearly cite the person and
-    discussion (e.g., "As argued by Ligon in a discussion `Tests of
-    Normality'
-    (https://bcourses.berkeley.edu/courses/1487913/discussion_topics/5746331),
-    the optimal weighting matrix has a great deal of structure than
-    can be exploited.")
+  - You are welcome (and even encouraged) to use arguments developed in our =piazza=
+    discussions, but in this case please clearly cite the person and
+    discussion (e.g., "As argued by Aaron in a discussion `Tests of
+    Normality' (=@32_f3=)
+    the optimal weighting matrix can be written as a function of a
+    single unknown parameter.")
   - Please email files or links to =ligon@berkeley.edu=.
-  - If you have questions about the final I will look for these on
-    [[https://ligonltd.slack.com][ligonltd.slack.com]], but I do not intend to be continuously
-    available on-line, so much better if you can ask questions early!
+  - If you have questions about the final I will look for these on the
+    #are212-econometrics channel of the [[https://app.slack.com/client/T01A34D5B6V/C01KC6ZBG4C][FY slack instance]], but I do
+    not intend to be continuously available on-line, so much better if
+    you can ask questions early!
 
-* Cross-Validation & Bootstrap Standard Errors
-  Consider estimation of a linear model $y = X\beta + u$, with the
-  identifying assumption that $\E(u|X)=0$.  
+* Identifying assumptions for regression
+  For each of the questions in this section provide a short answer and
+  argument.  Note the quality and concision of the argument 
+  matters much more than the answer!
+  1. Evaluate the truth of following statement: "In the linear
+     regression $y=X\beta + u$ the usual identifying assumption
+     $\E(u|X)=0$ implies $\E(h(X)\cdot u)=0$ for any function $h$
+     satisfying some regularity conditions related to measurability."
+  2. Consider the same linear regression $y=X\beta + u$, but now
+     suppose an alternative identifying assumption $\E(X|u)=0$.  
+     Construct a simple estimator based on this alternative.  Compare
+     the usual and alternative identifying assumptions; are they
+     equivalent?  Is one stronger than the other?
+  3. Suppose that $y=f(X)+u$ for some unknown but continuous function
+     $f$.  Suppose we want to use observed data on $X$ to predict
+     outcomes $y$, and seek a predictor $\hat{y}(X)$ which is "best"
+     in the sense that the mean squared prediction error $\E
+     (y-\hat{y}(X)|X)^2$ is minimized.  What can we say about
+     $\hat{y}$ and its relation to the conditional expectation
+     $\E(y|X)$?  Its relation to $u$?
 
-  When we compute \(K\)-fold cross-validation of a tuning parameter \lambda
-  (e.g., the penalty parameter in a LASSO regression), then for each value of
-  \lambda we obtain $K$ estimates of any given parameter, say
-  $\beta_i$; denote the estimates of this parameter by
-  $b_{i}^\cdot=(b_{i}^1,\dots,b_{i}^K)$.  If our total sample (say
-  $D_1$) comprises
-  $N$ iid observations, then each of our $K$ estimates will be based
-  on a sample $D_1^k$ of roughly $N\frac{K-1}{K}$ observations.
-  1. How can you use the estimates $b_{i}^\cdot$ to estimate the
-     variance of the estimator?
-  2. What can you say about the variance of your estimator of the
-     variance?  In particular, how does it vary with $K$?
-  3. Suppose we use $\bar{b}(\lambda)=K^{-1}\sum_{k=1}^K b^{k}$ as our
-     preferred estimate of $\beta$ at a given value of the tuning
-     parameter $\lambda$.  Construct an $R^2$ statistic which maps a
-     sample $D$ and a parameter vector $b$ into $[0,1]$.  Compare the
-     following:
+* Omitted Variables
+  You are asked to serve as a referee for a paper submitted to a top
+  field journal.  In the submitted paper the researcher uses a sample
+  of size $N$ to estimate a model
+  \[
+     y = \alpha + \beta x + u.
+  \]
+  The coefficient $\beta$ seems to be significantly different from
+  zero, but the researcher is concerned about omitted variable bias,
+  so they also estimate a variety of alternative specifications of the form
+  \[
+     y = \alpha + \beta x + \gamma w + u,
+  \]
+  where $w$ is one of a number of other variables that the researcher
+  hypothesizes might have some effect on $y$ as a way of testing the
+  first model.
 
-     a. $R^2(D_1,\bar{b}(\lambda))$ and $R^2(D_1,b_{OLS})$, where
-        $b_{OLS}$ denotes the OLS estimator estimated using the entire
-        sample $D_1$, so that $R^2(D_1,b_{OLS})$ corresponds to the
-        usual least-squares $R^2$ statistic.
+  The researcher finds a particular variable $w$ which enters the
+  regression significantly, and so (i) rejects the first model,
+  concluding that the first estimate of \beta was in fact affected by
+  omitted variable bias; (ii) declares the augmented regression to be
+  their "preferred specification;" and (iii) proceeds to construct
+  standard \(t\)-statistics for $\beta$ and $\gamma$ as a way of
+  proceeding with inference.
 
-     b. $R^2(D,\bar{b}(\lambda))$ and $R^2(D,b_{OLS})$, where
-        $b_{OLS}$ and $\bar{b}(\lambda)$ are estimated using $D_1$ as
-        described above, but where $D$ is some other iid sample from
-        the same data-generating process.
+  Peer reviews in economics usually include some "notes for the
+  author."  What might your notes say about the paper's approach to
+  omitted variable bias?  Comment specifically on each of (i), (ii),
+  and (iii).  Try to make your remarks critical yet
+  constructive---what shortcomings do you see, and how might the
+  author address these?
 
-     c. $K^{-1}\sum_{k=1}^K R^2(D_1^k,\bar{b}(\lambda))$ and
-        $K^{-1}\sum_{k=1}^K R^2(D_1^k,b_{OLS})$;
+* Breusch-Pagan Extended
+  Consider a linear regression of the form
+  \[ 
+     y = \alpha + \beta x + u,
+  \]
+  with $(y,x)$ both scalar random variables, where it is assumed that
+  (a.i) $\E(u\cdot x) = \E u = 0$ and (a.ii) $\E(u^2|x)=\sigma^2$.  
+  1. The condition a.i is essentially untestable, but
+     cite:breusch-pagan79 argue that one can test a.ii via an
+     auxiliary regression $\hat{u}^2 = c + d x + e$, where the $\hat{u}$
+     are the residuals from the first regression, and the test of a.ii
+     then becomes a test of $H_0:d=0$.  Explain both why a.i is untestable, and the logic of
+     the test of a.ii.
+  2. Use the two conditions a.i and a.ii to construct a GMM version of
+     the Breusch-Pagan test.  
+  3. What can you say  about the performance or relative merits of the
+     Bruesch-Pagan test versus your GMM alternative?
+  4. Suppose that in fact that $x$ is distributed uniformly over the
+     interval $[0,2\pi]$, and $\E(u^2|x)=\sigma^2(x)=\sigma^2\sin(x)$, thus
+     violating a.ii.  What can you say about the performance of the
+     Breusch-Pagan test in this circumstance?  Can you modify your GMM
+     test to provide a superior alternative?
+  5. In the above, we've considered a test of a specific functional
+     form for the variance of $u$.  Suppose instead that we don't have
+     any prior information regarding the form of $\E(u^2|x)=f(x)$.
+     Discuss how you might go about constructing an extended version
+     of the Breusch-Pagan test which tests for $f(x)$ non-constant.
+  6. Show that you can use your ideas about estimating $f(x)$ to
+     construct a more efficient estimator of $\beta$ if $f(x)$ isn't
+     constant.  Relate your estimator to the optimal generalized least
+     squares (GLS) estimator.  
 
-     c. $K^{-1}\sum_{k=1}^K R^2(D_1^k,\bar{b}(\lambda))$ and
-        $K^{-1}\sum_{k=1}^K R^2(D_1^k,b^{k}(\lambda))$;
+* Black Lives Matter
+  cite:fryer19 uses data on encounters between police and civilians
+  of different races in the US to explore how police use of force is
+  related to a civilian's race.  While Fryer finds that Black and
+  Hispanic civilians are much more likely to "experience some form of
+  force" from the police and while the probability of being shot by the police is
+  much higher for a civilian who is Black or Hispanic, Fryer's
+  most prominent result is that for "the most extreme use of
+  force---officer-involved shootings---we find no racial differences
+  either in the raw data or when contextual factors are taken into
+  account."  
 
-     e. $R^2(D,\bar{b}(\lambda))$ and $R^2(D,\beta)$;
+  Introducing some notation, let $R$ denote the civilian's race; $U$
+  some variables observed by the police officer prior to any
+  interaction (e.g., observing "suspicious" behavior) but not the
+  econometrician; $D$ a binary variable indicating the event ($D=1$) of an
+  encounter between a given civilian and a police officer; $V$ a set
+  of "contextual factors" related to the encounter and reported by the
+  officer; and $S$ the event that the civilian is shot by the officer.
+  We can then express Fry's finding regarding shootings as not being
+  able to reject either
+  \begin{equation}
+  \label{eq:fry1}
+      \mbox{Pr}(S|D=1,R) = \mbox{Pr}(S|D=1)
+  \end{equation}
+  or
+  \begin{equation}
+  \label{eq:fry2}
+      \mbox{Pr}(S|D=1,V,R) = \mbox{Pr}(S|D=1,V).
+  \end{equation}
 
-     f. $R^2(D,b_{OLS})$ and $R^2(D,\beta)$;
+   1. cite:durlauf-heckman20 criticize this conclusion of Fryer's, on
+      the grounds that $D$ may be an endogenous variable.  You needn't
+      read their paper, but explain in your own words what sorts of
+      endogeneity might undermine Fryer's conclusion that the
+      probability of being shot by the police doesn't depend on race.
 
-  4. How do the $R^2$ statistics you worked with above compare with
-     various notions of mean-square error?  The statistics which rely
-     on $\beta$ are typically infeasible, so setting these aside, how
-     might you use these statistics to choose a "best" estimator?
+   2. Spell out conditions on $(R,S,U,V,D)$ (perhaps using a causal diagram)
+      which would suffice to interpret (1) and (2) as evidence
+      that there are no racial differences in the victims of police
+      shootings.  In particular, what does one need to assume about
+      $\mbox{Pr}(D=1|R,U)$?
+
+   3. Consider an alternative ("driving while Black") model in which
+      the police use race as a criterion for stopping or otherwise
+      interacting with a given civilian.  Compare the causal structure
+      of this model with your answer to (2).  Viewed through the lens
+      of this model, how would one interpret Fry's failure to reject
+      $\mbox{Pr}(S|D=1,R) = \mbox{Pr}(S|D=1)$?
+
+   4. The Justice Department should care[fn:: The Equal Protection
+      Clause of the fourteenth amendment to the US constitution is
+      generally interpreted to require "equality before the law" for
+      all persons subject to the jurisdiction of the various states,
+      and the adoption of this amendment shortly after the Civil War
+      is regarded as evidence that it was specifically intended to
+      prevent discrimination against Black Americans.] about which
+      (Fry's or the "driving while Black") is the better model.  How
+      might one go about testing one against the other?
 
 * Weighting of Linear IV Estimators
   Consider the Linear IV model
@@ -104,8 +201,8 @@
   1. Exploiting the moment condition, under what conditions does the
      estimator $b_{IV}$ satisfying $Z^\T y = (Z^\T X)b_{IV}$
      consistently estimate $\beta$?
-  2. Suppose that $Z$ has $\ell$ columns.  Construct a symmetric,
-     $\ell\times\ell$ full rank matrix $W$, and a corresponding estimator $b_W$
+  2. Suppose that $Z$ has $\ell$ columns.  Suppose that $W$ is a symmetric,
+     $\ell\times\ell$ full rank matrix, with a corresponding estimator $b_W$
      satisfying $WZ^\T y = W(Z^\T X)b_{W}$.  Under what conditions
      will this estimator consistently estimate $\beta$?
   3. Describe the GMM criterion function that $b_W$ minimizes.
@@ -114,11 +211,15 @@
      Under what conditions is this the optimally weighted GMM estimator?
   5. $W=I$ for the $b_{IV}$ estimator described above.  Under what
      conditions is $b_{IV}$ the optimally weighted GMM estimator?
-  6. Describe a feasible GMM estimator for this model which is
-     optimally weighted given an iid sampling assumption and a
-     regularity condition that second moments of $(y,X,Z)$ be finite.
+  6. For the estimator described in (2), suppose that $W$ is diagonal,
+     with diagonal elements proportional to
+     $(1,1/2,1/4,...,2^{1-\ell})$.  Under what conditions is the
+     estimator $b_W$ the optimally weighted estimator?  Can you think
+     of a practical example where the optimal weighting matrix might
+     have this structure?
 
-* RCT Design
+
+* RCT Design                                                       :noexport:
   When designing an RCT (randomized control trial), one important
   element of the experimental design involves /power calculations/;
   these in turn rely on pre-specification of the regression one
@@ -200,7 +301,7 @@
      the model parameter $\gamma_1$.  Comment on the plausibility of
      these assumptions; are any of these testable?
 
-* Nested Samples
+* Nested Samples                                                   :noexport:
   Consider the linear model $y=X\beta + u$, where $X$ is thought to
   depend on $u$, but where we have a set of instruments $Z$ such that
   $\E Z^\T u = 0$.  In this case our observations on $y$ are limited,
@@ -243,3 +344,18 @@
         compare with two-stage-least squares?  What can you say about
         the relative efficiency of this estimator versus two-stage
         least squares?
+
+* Further ideas                                                    :noexport:
+  - Exploit difference between mean independence & independence
+  - "best predictor" defined as one that minimizes MSE; turns out to
+    be conditional expectation.
+  - Projection error vs prediction error (linear vs. nonlinear)
+  - Inference after specification search (e.g., test for an omitted
+    variable).
+* Causality in models                                              :noexport:
+  - Specify a simple model with some causal structure.
+  - Describe an experiment with randomization, work out predicted outcome.
+  - Do a Rubin; estimate "causal" effect.
+  - Note difference; emphasis that "causality" inheres in the model.
+* References                                                         :ignore:
+\printbibliography
