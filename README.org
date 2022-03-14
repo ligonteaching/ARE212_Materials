@@ -89,8 +89,7 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
      (PRs).  https://youtu.be/krDQk5ZzP8U
    - GitHub to DataHub :: How to use datahub to run & edit code from
      github:  https://youtu.be/HBM8jgvYPtA
-   - Python Bootcamp :: [[[http://datahub.berkeley.edu/user-redirect/interact?account=acwatt&repo=are212-bootcamp&branch=master&path=][datahub]]][[[https://github.com/acwatt/are212-bootcamp
-][github]]]
+   - Python Bootcamp :: [[[http://datahub.berkeley.edu/user-redirect/interact?account=acwatt&repo=are212-bootcamp&branch=master&path=][datahub]]][[[https://github.com/acwatt/are212-bootcamp][github]]]
 
 * Topics
    Discussion of topics for 2nd half of course: [[https://drive.google.com/file/d/1MmyeW71lNVixYoXcuJTHjdBk-Fu7kpq_][[video]]]
