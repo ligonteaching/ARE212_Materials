@@ -1,39 +1,41 @@
 
 # Table of Contents
 
-1.  [General Policies](#orgb6bc574)
-    1.  [Grading](#org0fc94d0)
-        1.  [Final Exam](#org74afd64)
-        2.  [Groups](#org9c84ad0)
-        3.  [Discussions & Exercises](#orgb9d4493)
-    2.  [Readings](#org47a5dc2)
-2.  [Other Resources](#org6834b9c)
-    1.  [HowTos](#org3464582)
-3.  [Topics](#org8baa82d)
-    1.  [Multiple Equation Models](#org65b77d6)
-    2.  [Causality & Correlation](#orgecba1a7)
-    3.  [Identification & Instrumental Variables](#org3af3d6f)
-    4.  [Generalized Method of Moments](#org77bd377)
-    5.  [Discrete Choice & Maximum Likelihood](#orgbea8757)
-    6.  [Resampling &  the Bootstrap](#orgf2f1d39)
-    7.  [Cross-Validation & Other Ideas from Machine Learning](#orgecd9d5e)
+1.  [General Policies](#orgf960edf)
+    1.  [Grading](#orgee51165)
+        1.  [Final Exam](#orgdcead41)
+        2.  [Groups](#org6d4f280)
+        3.  [Discussions & Exercises](#org921188c)
+    2.  [Readings](#org664a671)
+2.  [Other Resources](#org24f3a82)
+    1.  [Friday Sections](#org2860937)
+    2.  [HowTos](#org9e9f8b1)
+3.  [Topics](#org87d4348)
+    1.  [Multiple Equation Models](#org82948d6)
+    2.  [Some Non-parametrics](#org381fba4)
+    3.  [Causality & Correlation](#orgce39038)
+    4.  [Identification & Instrumental Variables](#orgf5c6510)
+    5.  [Generalized Method of Moments](#org56c603e)
+    6.  [Discrete Choice & Maximum Likelihood](#org7958ab8)
+    7.  [Resampling &  the Bootstrap](#org306b8aa)
+    8.  [Cross-Validation & Other Ideas from Machine Learning](#org55c5b27)
 
 For class-related conversations, please go to [piazza.com](https://piazza.com/class/km9z4xiuham24j).
 
 
-<a id="orgb6bc574"></a>
+<a id="orgf960edf"></a>
 
 # General Policies
 
 Discussion of administrative issues: [[video](https://drive.google.com/file/d/1lrcl99dxnaH2APiQ7d5EwppcpMbhpM8-)]
 
 
-<a id="org0fc94d0"></a>
+<a id="orgee51165"></a>
 
 ## Grading
 
 
-<a id="org74afd64"></a>
+<a id="orgdcead41"></a>
 
 ### Final Exam
 
@@ -43,7 +45,7 @@ preferable then we can reschedule).  You will have 24 hours to
 complete the final.
 
 
-<a id="org9c84ad0"></a>
+<a id="org6d4f280"></a>
 
 ### Groups
 
@@ -52,7 +54,7 @@ group will be responsible for working together on certain
 assignments.  Group sizes should be between 3&#x2013;6 (inclusive).  
 
 
-<a id="orgb9d4493"></a>
+<a id="org921188c"></a>
 
 ### Discussions & Exercises
 
@@ -109,7 +111,7 @@ discussion.  These are in lieu of formal individual problem sets.
     give you credit).
 
 
-<a id="org47a5dc2"></a>
+<a id="org664a671"></a>
 
 ## Readings
 
@@ -122,58 +124,78 @@ discussion.  These are in lieu of formal individual problem sets.
     files which you may find useful.
 
 
-<a id="org6834b9c"></a>
+<a id="org24f3a82"></a>
 
 # Other Resources
 
 
-<a id="org3464582"></a>
+<a id="org2860937"></a>
+
+## Friday Sections
+
+Lucy Hackett will hold weekly sections on Fridays.  She&rsquo;ll present
+material pertaining to both econometrics and programming.
+
+It&rsquo;s critical to note that we expect you to develop some fluency in
+the programming language `python`.  
+
+
+<a id="org9e9f8b1"></a>
 
 ## HowTos
 
 -   **GitHub:** How to view, files, fork, edit, and issue pull requests
     (PRs).  <https://youtu.be/krDQk5ZzP8U>
--   **GitHub to DataHub:** How to use datahub to run & edit code from github:  <https://youtu.be/HBM8jgvYPtA>
+-   **GitHub to DataHub:** How to use datahub to run & edit code from
+    github:  <https://youtu.be/HBM8jgvYPtA>
+-   **Python Bootcamp:** [[datahub](http://datahub.berkeley.edu/user-redirect/interact?account=acwatt&repo=are212-bootcamp&branch=master&path=)][[[<https://github.com/acwatt/are212-bootcamp>
+
+][github]]]
 
 
-<a id="org8baa82d"></a>
+<a id="org87d4348"></a>
 
 # Topics
 
 Discussion of topics for 2nd half of course: [[video](https://drive.google.com/file/d/1MmyeW71lNVixYoXcuJTHjdBk-Fu7kpq_)]
 
 
-<a id="org65b77d6"></a>
+<a id="org82948d6"></a>
 
 ## Multiple Equation Models
 
 
-<a id="orgecba1a7"></a>
+<a id="org381fba4"></a>
+
+## Some Non-parametrics
+
+
+<a id="orgce39038"></a>
 
 ## Causality & Correlation
 
 
-<a id="org3af3d6f"></a>
+<a id="orgf5c6510"></a>
 
 ## Identification & Instrumental Variables
 
 
-<a id="org77bd377"></a>
+<a id="org56c603e"></a>
 
 ## Generalized Method of Moments
 
 
-<a id="orgbea8757"></a>
+<a id="org7958ab8"></a>
 
 ## Discrete Choice & Maximum Likelihood
 
 
-<a id="orgf2f1d39"></a>
+<a id="org306b8aa"></a>
 
 ## Resampling &  the Bootstrap
 
 
-<a id="orgecd9d5e"></a>
+<a id="org55c5b27"></a>
 
 ## Cross-Validation & Other Ideas from Machine Learning
 

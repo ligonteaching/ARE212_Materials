@@ -9,15 +9,34 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
 ** Grading
 *** Final Exam
     The final exam will be "take-home", and be made available by 11am on
-    Monday, May 10.  It will be due 24 hours later.
-*** Discussions
-    Given that group work is harder now, we'd like to try an
-    alternative to group problem sets, while still encouraging
-    collaboration.
+    Monday, May 9 (if there is a *consensus* that an earlier date is
+    preferable then we can reschedule).  You will have 24 hours to
+    complete the final.
 
-    So: for the 2nd half of the class, rather than completing several
-    formal problem sets, we ask you to participate in discussions on
-    piazza.com.
+*** Groups
+    You should regard yourself as a member of a *group*, and your
+    group will be responsible for working together on certain
+    assignments.  Group sizes should be between 3--6 (inclusive).  
+
+*** Discussions & Exercises
+    We will provide a combination of exercises and problems for
+    discussion.  These are in lieu of formal individual problem sets.  
+**** Exercises
+    You are *required* to work on the exercises with other students in
+    the class.  Your *group* should turn in /one/ set of notes and
+    proposed solutions to the exercises.   I will provide a set of
+    exercises for each of our major topics.   These are called
+    /exercises/ because they are meant more as tests of comprehension
+    than as more difficult /problems/.  Exercises will be graded on a
+    "check", "check +", "check -" system.  
+
+    Not turning in an exercise will be much worse for the grades of
+    people in your group than receiving a "check -".
+
+**** Discussions
+    /Problems/ will be the focus of broader class discussion on =piazza.com=.  Your
+    participation and contributions in these discussions will be
+    /individually/ graded.
 
     My intention is to post different discussion prompts every week.
     There are two things (well, five) I then ask of you each week: 
@@ -33,7 +52,7 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
  
     The goal here is to have constructive discussions, to help us all
     in our thinking about interesting topics in econometrics.  Our
-    "grading" of your remarks will be restricting to counting them and
+    "grading" of your remarks will be restricted to counting them and
     to noting when we think your remarks are good (we'll "like" them).
     The bar for a good remark isn't really very high--we just want to
     see that you're contributing constructively to the conversation.
@@ -42,22 +61,48 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
     "great question!", but we'd hope to see other remarks with more
     substantive thought or content.
 
+    The main way to receive a poor individual assessment for the
+    discussions is not to participate in them.  If you feel shy about
+    sharing your thoughts with the class, piazza allows you to post in
+    such a way that your classmates can't identify you (you could also
+    post fully anonymously, but in this case the instructors can't
+    give you credit).
+
 ** Readings
-  - "Hansen" refers to Bruce Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].
+  - "Hansen" refers to Bruce Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].  This is
+    freely available on-line, and is soon to be published by Princeton.
   - Unresolved references of the form "cite:foo84" or similar are keys
     with values that can be looked up in
     [[file:are212.bib][are212.bib]].  This last is a bibtex database which
     you're free to use.  The bibtex file includes some links to pdf
     files which you may find useful.
-* Videos
+* Other Resources
+** Friday Sections
+   Lucy Hackett will hold weekly sections on Fridays.  She'll present
+   material pertaining to both econometrics and programming.
+
+   It's critical to note that we expect you to develop some fluency in
+   the programming language =python=.  
+
 ** HowTos
    - GitHub :: How to view, files, fork, edit, and issue pull requests
      (PRs).  https://youtu.be/krDQk5ZzP8U
-   - GitHub to DataHub :: How to use datahub to run & edit code from github:  https://youtu.be/HBM8jgvYPtA
-** Lectures                                                        :noexport:
+   - GitHub to DataHub :: How to use datahub to run & edit code from
+     github:  https://youtu.be/HBM8jgvYPtA
+   - Python Bootcamp :: [[[http://datahub.berkeley.edu/user-redirect/interact?account=acwatt&repo=are212-bootcamp&branch=master&path=][datahub]]][[[https://github.com/acwatt/are212-bootcamp
+][github]]]
+
 * Topics
    Discussion of topics for 2nd half of course: [[https://drive.google.com/file/d/1MmyeW71lNVixYoXcuJTHjdBk-Fu7kpq_][[video]]]
- 
+** Multiple Equation Models
+** Some Non-parametrics
+** Causality & Correlation
+** Identification & Instrumental Variables
+** Generalized Method of Moments
+** Discrete Choice & Maximum Likelihood
+** Resampling &  the Bootstrap
+** Cross-Validation & Other Ideas from Machine Learning
+* Future Topics                                                    :noexport:
 ** Multiple Equation Models
    - Lecture: Multiple Linear Equation Models I [[https://github.com/ligonteaching/ARE212_Materials/blob/master/multiple_regression.pdf][[pdf]]][[[https://drive.google.com/file/d/1ULO_v8_g-lIWLdU0af7SW_kax_8vht5o][video]]]
    - Reading
@@ -78,13 +123,10 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
      - [[file:random_variables0.ipynb][random_variables0.ipynb]]
      - [[file:classical_regression.ipynb][classical_regression.ipynb]]
      - [[file:weighted_regression.ipynb][weighted_regression.ipynb]]
-** Causality & Correlation
-** Identification & Instrumental Variables
-** Generalized Method of Moments
-** Discrete Choice
-** Resampling &  the Bootstrap
-** Cross-Validation & Other Ideas from Machine Learning
-* Future Topics                                                    :noexport:
+** Some Non-parametrics
+   - Reading
+     - Non-parametric Density Estimation, Chapter 17 in [[https://www.ssc.wisc.edu/~bhansen/probability/Intro2Metrics.pdf][Hansen's Introduction to Econometrics]]
+     - Hansen Ch. 19 (Non-parametric regression)
 ** Causality & Correlation
    - [[file:causality_and_correlation.pdf][Notes on Causality & Correlation]]
    - Reading
