@@ -1,0 +1,104 @@
+% Created 2022-03-28 Mon 09:39
+% Intended LaTeX compiler: pdflatex
+\RequirePackage{rotating}
+\documentclass[12pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\usepackage{minted}
+\usepackage{wasysym}
+\newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+\renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+\usepackage{bm}\usepackage{econometrics}
+\newcommand{\T}{\top}
+\newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+%\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
+%\newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+%\newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+%\newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+%\newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+%\newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+%\newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+\newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+\usepackage{dsfont}\newcommand{\one}{\ensuremath{\mathds{1}}}
+\usepackage{xcolor}
+\newcommand{\rv}[1]{\ensuremath{\textcolor{red}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{{}_{rv}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{\underline{#1}{}}}
+\newcommand{\rvy}{\rv{y}}
+\newcommand{\rvX}{\rv{X}}
+\newcommand{\rvx}{\rv{x}}
+\newcommand{\rvu}{\rv{u}}
+\renewcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\renewcommand{\E}{\ensuremath{\mathds{E}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\author{Ethan Ligon}
+\date{Due April 3, 2022}
+\title{Exercises (Non-parametric estimation)}
+\hypersetup{
+ pdfauthor={Ethan Ligon},
+ pdftitle={Exercises (Non-parametric estimation)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.5.2)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\begin{enumerate}
+\item Let \(f(x)\) be a density, and let \(\hat{f}(x)=\frac{1}{nh}\sum_i
+     k\left(\frac{\rvX_i-x}{h}\right)\) be an estimator of \(f(x)\).
+These aren't generally equal, of course.  But show that if \(k\) is
+a valid positive kernel then \(\hat{f}\) is also a density. (Hint:
+use fact that \(k\) is a density and use rules for transforming
+random variables.)
+\item The density for the standard Cauchy distribution is
+\(f(x)=\frac{1}{\pi(1+x^2)}\).  Apparently this could be used as a
+kernel.  Of the desirable properties we've discussed
+(non-negative, boundedness, symmetry, differentiability) which
+are possessed by the Cauchy kernel?
+\item In lecture we derived an expression for the bias of \(\hat{f}(x)\)
+in terms of the true density \(f\).  Use an analogous argument to
+obtain an expression for the variance in terms of \(f\).
+\item You use data from the Indian NSS to produce a figure describing
+the distribution of non-durable expenditures across households,
+measured in INR, and using a kernel estimator with bandwidth \(h\).
+A referee asks you to re-estimate the distribution after
+converting the expenditure data so that the units are in
+USD, using the 2014 PPP rate of 18.4 INR/USD.  What new bandwidth
+should you use?
+\item There's a sense in which the Epanechnikov kernel, 
+\[
+     {}  k(u) = \begin{cases} 
+                  \frac{3}{4\sqrt{5}}\left(1-\frac{u^2}{5}\right) &
+     \text{if $|u|<\sqrt{5}$}\\
+     {}              0 & \text{otherwise} \end{cases}
+     \] 
+is optimal (it minimizes the asymptotic integrated mean square
+error of the estimator).  Using the same code we developed in
+lecture as a base, implement the Epanechnikov kernel, and compare
+its performance in terms of the Oracle calculations of bias and
+variance with the Gaussian kernel.
+\item Consider the non-parametric regression model
+   \begin{align*}
+ \rvy &= m(\rvX) + \rvu\\
+ \E(\rvu|\rvX) &= 0\\
+ \E(\rvu^2|\rvX) &= \sigma^2(\rvX).
+\end{align*}
+Suppose that (unknown to the econometrician) the `true' \(m(x) =
+     \alpha + \beta x\).  The econometrician estimates the
+ non-parametric model using kernel regression.  What is the bias
+ of the estimator?  How does this depend on the sign of \(\beta\)?
+\end{enumerate}
+\end{document}
