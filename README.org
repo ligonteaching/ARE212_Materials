@@ -122,7 +122,7 @@ For class-related conversations, please go to [[https://piazza.com/class/km9z4xi
      - [[file:random_variables0.ipynb][random_variables0.ipynb]]
      - [[file:classical_regression.ipynb][classical_regression.ipynb]]
      - [[file:weighted_regression.ipynb][weighted_regression.ipynb]]
-** Some Non-parametrics
+** Some Non-parametrics (Kernel methods)
    - Reading
      - Non-parametric Density Estimation, Chapter 17 in [[https://www.ssc.wisc.edu/~bhansen/probability/Intro2Metrics.pdf][Hansen's Introduction to Econometrics]]
      - Hansen Ch. 19 (Non-parametric regression)
