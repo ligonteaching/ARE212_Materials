@@ -1,0 +1,118 @@
+% Created 2022-04-20 Wed 07:35
+% Intended LaTeX compiler: pdflatex
+\RequirePackage{rotating}
+\documentclass[12pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{textcomp}
+\usepackage{marvosym}
+\usepackage{wasysym}
+\usepackage{hyperref}
+\tolerance=1000
+\usepackage[authordate-trad,backend=biber,natbib]{biblatex-chicago}
+\addbibresource{main.bib}
+\addbibresource{ligon.bib}
+\renewcommand{\refname}{}
+\usepackage{booktabs}
+\usepackage{minted}
+\usepackage{wasysym}
+\newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+\renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+\usepackage{bm}\usepackage{econometrics}
+\newcommand{\T}{\top}
+\newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+%\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
+%\newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+%\newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+%\newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+%\newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+%\newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+%\newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+\newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+\usepackage{dsfont}\newcommand{\one}{\ensuremath{\mathds{1}}}
+\usepackage{xcolor}
+\newcommand{\rv}[1]{\ensuremath{\textcolor{red}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{{}_{rv}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{\underline{#1}{}}}
+\newcommand{\rvy}{\rv{y}}
+\newcommand{\rvX}{\rv{X}}
+\newcommand{\rvx}{\rv{x}}
+\newcommand{\rvu}{\rv{u}}
+\renewcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\renewcommand{\E}{\ensuremath{\mathds{E}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\author{Ethan Ligon}
+\date{\today}
+\title{Exercises (GMM)}
+\hypersetup{
+ pdfauthor={Ethan Ligon},
+ pdftitle={Exercises (GMM)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.0.50 (Org mode 9.4.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+When we approach a new estimation problem from a GMM perspective
+there's a simple set of steps we can follow.
+\begin{enumerate}
+\item Describe the parameter space \(B\);
+\item Describe a function \(g_j(b)\) such that \(\E g_j(\beta)=0\);
+\item Describe an estimator for the covariance matrix \(\E g_j(\beta)g_j(\beta)^\T\).
+\end{enumerate}
+
+\section{Questions}
+\label{sec:org055ab86}
+\begin{enumerate}
+\item Explain how the the set of steps outlined above can be used to
+construct an optimally weighted GMM estimator.
+\item Consider the following models.  For each, provide a causal
+diagram; construct the optimally weighted GMM estimator of
+the unknown parameters (various Greek letters); and give an
+estimator for the covariance matrix of your estimates.  If
+any additional assumptions are required for your estimator
+to be identified please provide these.
+\begin{enumerate}
+\item \(\E\rvy = \mu\); \(\E(\rvy-\mu)^2 = \sigma^2\); \(\E(\rvy-\mu)^3 = 0\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=0\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=0\),
+and \(\E(\rvu^2)=\sigma^2\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=0\),
+and \(\E(\rvu^2)=e^{X\sigma}\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with
+\(\E(\rv{Z}^\T\rvu)=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
+\item \(\rvy = f(\rvX\beta) + \rvu\); with \(f\) a
+known scalar function and with
+\(\E(\rv{Z}^\T\rvu)=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
+\item \(\rvy = f(\rvX,\beta) + \rvu\); with \(f\) a
+known function and with
+\(\E(\rv{Z}^\T\rvu)=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
+\item \(\rvy^\gamma = \alpha + \rvu\), with \(\rvy>0\) and \(\gamma\) a scalar.
+\end{enumerate}
+\end{enumerate}
+\section{Computing}
+\label{sec:org0621867}
+\begin{enumerate}
+\item Select three of the models above, and for each of these
+write a data-generating process in \texttt{python}.  Your function
+\texttt{dgp} should take as arguments a sample size \(N\) and a vector of
+``true'' parameters \(b0\), and return a dataset \((y,X)\).
+\item Select the most interesting of the data generating processes you
+developed, and using the code in \texttt{gmm.py} or \texttt{GMM\_class.py} (see
+\url{https://github.com/ligonteaching/ARE212\_Materials/}) use data
+from your \texttt{dgp} to analyze the finite sample performance of the
+corresponding GMM estimator you've constructed.  Of particular
+interest is the distribution of your estimator using a sample
+size \(N\) and how this distribution compares with the limiting
+distribution as \(N\rightarrow\infty\).
+\end{enumerate}
+\end{document}
