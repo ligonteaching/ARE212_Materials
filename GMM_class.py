@@ -18,6 +18,8 @@ class GMM(object):
 
         self.W = W
 
+        self.b = None
+
         try:
             self.k = len(B)
             self.b_init = np.array(B)
@@ -51,16 +53,24 @@ class GMM(object):
 
     def one_step_gmm(self,W=None,b_init=None):
 
-        return gmm.one_step_gmm(self.data,W,b_init=self.b_init)
+        self['b'] = gmm.one_step_gmm(self.data,W,b_init=self.b_init)
+
+        return self['b']
     
     def two_step_gmm(self):
 
-        return gmm.two_step_gmm(self.data)
+        self['b'] = gmm.two_step_gmm(self.data,b_init=self.b_init)[0]
+
+        return self['b']
 
     def continuously_updated_gmm(self):
 
-        return gmm.continuously_updated_gmm(self.data,b_init=self.b_init)
+        self['b'] = gmm.continuously_updated_gmm(self.data,b_init=self.b_init)[0]
+        
+        return self['b']
+
 
 
 if __name__=='__main__':
-    foo = GMM(gmm.gj,
+    #foo = GMM(gmm.gj,
+    pass

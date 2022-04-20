@@ -35,8 +35,11 @@ def gN(b,data):
 
     # Check to see more obs. than moments.
     assert e.shape[0] > e.shape[1]
-    
-    return e.mean(axis=0).reshape((-1,1))
+
+    try:
+        return e.mean(axis=0).reshape((-1,1))
+    except AttributeError:
+        return e.mean(axis=0)
 
 def Omegahat(b,data):
     e = gj(b,data)
