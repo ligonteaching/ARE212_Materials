@@ -53,21 +53,21 @@ class GMM(object):
 
     def one_step_gmm(self,W=None,b_init=None):
 
-        self['b'] = gmm.one_step_gmm(self.data,W,b_init=self.b_init)
+        self.b = gmm.one_step_gmm(self.data,W,b_init=self.b_init)
 
-        return self['b']
+        return self.b
     
     def two_step_gmm(self):
 
-        self['b'] = gmm.two_step_gmm(self.data,b_init=self.b_init)[0]
+        self.b = gmm.two_step_gmm(self.data,b_init=self.b_init)[0]
 
-        return self['b']
+        return self.b
 
     def continuously_updated_gmm(self):
 
-        self['b'] = gmm.continuously_updated_gmm(self.data,b_init=self.b_init)[0]
+        self.b = gmm.continuously_updated_gmm(self.data,b_init=self.b_init)[0]
         
-        return self['b']
+        return self.b
 
 
 
