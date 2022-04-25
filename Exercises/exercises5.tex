@@ -1,4 +1,4 @@
-% Created 2022-04-20 Wed 07:35
+% Created 2022-04-25 Mon 12:21
 % Intended LaTeX compiler: pdflatex
 \RequirePackage{rotating}
 \documentclass[12pt]{amsart}
@@ -14,13 +14,9 @@
 \usepackage{marvosym}
 \usepackage{wasysym}
 \usepackage{hyperref}
-\tolerance=1000
-\usepackage[authordate-trad,backend=biber,natbib]{biblatex-chicago}
-\addbibresource{main.bib}
-\addbibresource{ligon.bib}
-\renewcommand{\refname}{}
-\usepackage{booktabs}
 \usepackage{minted}
+\usepackage{booktabs}
+\usepackage[authordate-trad,backend=biber,natbib]{biblatex-chicago}
 \usepackage{wasysym}
 \newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
 \renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
@@ -57,7 +53,7 @@
  pdftitle={Exercises (GMM)},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.0.50 (Org mode 9.4.5)}, 
+ pdfcreator={Emacs 28.0.50 (Org mode 9.5.2)}, 
  pdflang={English}}
 \begin{document}
 
@@ -71,7 +67,7 @@ there's a simple set of steps we can follow.
 \end{enumerate}
 
 \section{Questions}
-\label{sec:org055ab86}
+\label{sec:org5c161ea}
 \begin{enumerate}
 \item Explain how the the set of steps outlined above can be used to
 construct an optimally weighted GMM estimator.
@@ -83,29 +79,36 @@ any additional assumptions are required for your estimator
 to be identified please provide these.
 \begin{enumerate}
 \item \(\E\rvy = \mu\); \(\E(\rvy-\mu)^2 = \sigma^2\); \(\E(\rvy-\mu)^3 = 0\).
-\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=0\).
-\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=0\),
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=\E\rvu=0\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=\E\rvu = 0\),
 and \(\E(\rvu^2)=\sigma^2\).
-\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=0\),
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=\E\rvu=0\),
 and \(\E(\rvu^2)=e^{X\sigma}\).
 \item \(\rvy = \alpha + \rvX\beta + \rvu\); with
-\(\E(\rv{Z}^\T\rvu)=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
+\(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
 \item \(\rvy = f(\rvX\beta) + \rvu\); with \(f\) a
 known scalar function and with
-\(\E(\rv{Z}^\T\rvu)=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
+\(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and \(\E \rv{Z}^\T \rvX
+         f'(\rvX\beta) = \mQ(\beta)\).  (Bonus
+question: where does this last restriction come from, and
+what role does it play?)
 \item \(\rvy = f(\rvX,\beta) + \rvu\); with \(f\) a
 known function and with
-\(\E(\rv{Z}^\T\rvu)=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
-\item \(\rvy^\gamma = \alpha + \rvu\), with \(\rvy>0\) and \(\gamma\) a scalar.
+\(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and \(\E \rv{Z}^\T\frac{\partial
+         f}{\partial \beta^\T}(\rvX,\beta) = \mQ(\beta)\).
+\item \(\rvy^\gamma = \alpha + \rvu\), with \(\rvy>0\) and \(\gamma\) a
+scalar, and \(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and
+\(\E\rv{Z}^\T\begin{bmatrix}\gamma
+         \rvy^{\gamma-1}\\-1\end{bmatrix} =\mQ(\gamma)\).
 \end{enumerate}
 \end{enumerate}
 \section{Computing}
-\label{sec:org0621867}
+\label{sec:orgbb7a91c}
 \begin{enumerate}
 \item Select three of the models above, and for each of these
 write a data-generating process in \texttt{python}.  Your function
-\texttt{dgp} should take as arguments a sample size \(N\) and a vector of
-``true'' parameters \(b0\), and return a dataset \((y,X)\).
+\texttt{dgp} should take as arguments a sample size \texttt{N} and a vector of
+``true'' parameters \texttt{b0}, and return a dataset \((y,X)\).
 \item Select the most interesting of the data generating processes you
 developed, and using the code in \texttt{gmm.py} or \texttt{GMM\_class.py} (see
 \url{https://github.com/ligonteaching/ARE212\_Materials/}) use data
