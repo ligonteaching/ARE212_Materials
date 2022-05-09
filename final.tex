@@ -1,4 +1,4 @@
-% Created 2021-05-10 Mon 17:33
+% Created 2022-05-09 Mon 09:42
 % Intended LaTeX compiler: pdflatex
 \RequirePackage{rotating}
 \documentclass[12pt]{amsart}
@@ -14,17 +14,40 @@
 \usepackage{marvosym}
 \usepackage{wasysym}
 \usepackage{hyperref}
-\tolerance=1000
-\usepackage[authordate-trad,backend=biber,natbib]{biblatex-chicago}
-\addbibresource{main.bib}
-\addbibresource{ligon.bib}
-\renewcommand{\refname}{}
-\usepackage{booktabs}
 \usepackage{minted}
+\usepackage{booktabs}
+\usepackage[authordate-trad,backend=biber,natbib]{biblatex-chicago}
+\usepackage{wasysym}
+\newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+\renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+\usepackage{bm}\usepackage{econometrics}
 \newcommand{\T}{\top}
-\newcommand{\E}{\ensuremath{\mbox{E}}}
+\newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+%\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
+%\newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+%\newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+%\newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+%\newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+%\newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+%\newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+\newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+\usepackage{dsfont}\newcommand{\one}{\ensuremath{\mathds{1}}}
+\usepackage{xcolor}
+\newcommand{\rv}[1]{\ensuremath{\textcolor{red}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{{}_{rv}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{\underline{#1}{}}}
+\newcommand{\rvy}{\rv{y}}
+\newcommand{\rvX}{\rv{X}}
+\newcommand{\rvx}{\rv{x}}
+\newcommand{\rvu}{\rv{u}}
+\renewcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\renewcommand{\E}{\ensuremath{\mathds{E}}}
 \usepackage{fullpage}
 \renewcommand{\thesection}{\Roman{section}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\addbibresource{main.bib}
 \author{Ethan Ligon}
 \date{\today}
 \title{ARE212 Final Exam}
@@ -33,14 +56,14 @@
  pdftitle={ARE212 Final Exam},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 28.0.50 (Org mode 9.3.7)}, 
+ pdfcreator={Emacs 28.0.50 (Org mode 9.5.2)}, 
  pdflang={English}}
 \begin{document}
 
 \maketitle
 
 This is the final exam for ARE212, covering material from the second
-half of the course taught in Spring 2021.   The exam is
+half of the course taught in Spring 2022.   The exam is
 ``take-at-home''; you may consult any resources you wish in completing
 it (notes, textbooks, lecture videos, etc.) except for other
 people.  This last restriction isn't easily enforceable; I rely on
@@ -49,7 +72,7 @@ Berkeley Honor Code.
 
 More guidance:
 \begin{itemize}
-\item The exam is due at 11am  on Tuesday May 11.
+\item The exam is due at 10am  on Tuesday May 10.
 \item In completing the exam you should develop written arguments
 (e.g., expressed using \LaTeX{} or pencil and paper).  In some cases
 you may wish to supplement these written arguments with
@@ -60,45 +83,147 @@ to an email, or similar).  In any case please be sure that
 materials you submit are well-organized and clearly
 documented---if I overlook some file you've sent or can't run it
 that's on you.
-\item You are welcome (and even encouraged) to use arguments developed in our \texttt{piazza}
-discussions, but in this case please clearly cite the person and
-discussion (e.g., ``As argued by Aaron in a discussion `Tests of
-Normality' (\texttt{@32\_f3})
-the optimal weighting matrix can be written as a function of a
-single unknown parameter.'')
+\item You are welcome (and even encouraged) to use arguments developed
+in our \texttt{piazza} discussions, but in this case please clearly cite
+the person and discussion (e.g., ``As argued by Michelle in a
+discussion `Tests of Normality' (\texttt{@53\_f11}) the optimal weighting
+matrix can be written as a function of the unknown parameters.'')
 \item Please email files or links to \texttt{ligon@berkeley.edu}.
-\item If you have questions about the final I will look for these on the
-\#are212-econometrics channel of the \href{https://app.slack.com/client/T01A34D5B6V/C01KC6ZBG4C}{FY slack instance}, but I do
-not intend to be continuously available on-line, so much better if
-you can ask questions early!
 \end{itemize}
 
-\section{Identifying assumptions for regression}
-\label{sec:org7b183fe}
-For each of the questions in this section provide a short answer and
-argument.  Note the quality and concision of the argument 
-matters much more than the answer!
+\section{Some short questions}
+\label{sec:org4757ca0}
 \begin{enumerate}
-\item Evaluate the truth of following statement: ``In the linear
-regression \(y=X\beta + u\) the usual identifying assumption
-\(\E(u|X)=0\) implies \(\E(h(X)\cdot u)=0\) for any function \(h\)
-satisfying some regularity conditions related to measurability.''
-\item Consider the same linear regression \(y=X\beta + u\), but now
-suppose an alternative identifying assumption \(\E(X|u)=0\).  
-Construct a simple estimator based on this alternative.  Compare
-the usual and alternative identifying assumptions; are they
-equivalent?  Is one stronger than the other?
-\item Suppose that \(y=f(X)+u\) for some unknown but continuous function
-\(f\).  Suppose we want to use observed data on \(X\) to predict
-outcomes \(y\), and seek a predictor \(\hat{y}(X)\) which is ``best''
-in the sense that the mean squared prediction error \(\E
-     (y-\hat{y}(X)|X)^2\) is minimized.  What can we say about
-\(\hat{y}\) and its relation to the conditional expectation
-\(\E(y|X)\)?  Its relation to \(u\)?
+\item The model of Wright (1934) is ``normal'' in the sense that all of
+the underlying random variation comes from two normally
+distributed random variables.  Why are there ``only five useful
+moments''? Why aren’t higher order moments involved?  If there
+were three normally distributed random variables how many ``useful
+moments'' would there be?
+
+\item From a sample of \(N\) original observations \((y_i,X_i)\) we
+estimate the vector of parameters \(\beta\) in
+\(\vy = \mX\beta + \vu\), using ordinary least squares, obtaining
+\(\beta^{(OLS)}\).  
+
+It's often good practice to use some sort of resampling procedure
+to estimate the finite sample distribution of our estimators.
+
+Consider two different approaches to this:
+\begin{description}
+\item[{Bootstrap}] From a sample of \(N\) original observations \((y_i,X_i)\) we
+ randomly select \(N\) observations (with replacement), and for
+ selection \(s\) we estimate the vector of parameters \(\beta\) in
+ \(\vy^{(s)} = \mX^{(s)}\beta + \vu^{(s)}\), obtaining
+ \(\beta^{(s)}\).  We do this \(N\) times (for some not very
+well-motivated reason), so that we wind up with \(N\) different
+estimates of \(\beta\).
+\item[{Cross-Validation}] From the same sample of \(N\) original observations \((y_i,X_i)\) we
+ compute \(N\) different ``leave-out-one'' estimates of \(\beta\) from
+ \(\vy^{(-i)} = \mX^{(-i)}\beta + \vu^{(-i)}\), each time obtaining
+ \(\beta^{(-i)}\), based on \(N-1\) observations.  This again gives
+us \(N\) different estimates of \(\beta\).
+\end{description}
+
+How could you use the Bootstrap or Cross-Validation sets of
+estimates to construct estimates of the standard errors of the
+OLS estimator \(\beta^{(OLS)}\)?  What  relationship might you
+expect between the sample variance of the Bootstrap estimates and
+the cross-validation estimates?
+
+\item We wish to estimate the model \(\rvy = \rvX\beta + \rvu\) using a
+sample of \(N\) original, \emph{independent} observations \((y_i,X_i)\).
+The economic model we're interested in implies \(\E(\rvu|\rvX)=0\) so that
+we have \(\E(\mX^\T\rvu|\rvX=\mX) = 0\), but says
+nothing about the variance of \(\rvu\) across observations.
+\begin{enumerate}
+\item Use the identifying assumption to derive the GMM estimator of
+\(\beta\).
+\item Using the fact that the observations are independent, what can
+you say about the structure of the covariance matrix \(\E
+        \mX^\T\rvu\rvu^\T\mX\)?
+\item Use your result in (b) to construct an estimator of the
+covariance matrix of your estimator \(\beta\).  How does this
+compare with the estimator in the homoskedastic case?
+\end{enumerate}
+\end{enumerate}
+
+
+
+\section{General Weighted Regressions}
+\label{sec:orgebc91b6}
+Consider the regression \(\rvy = \rvX\beta + \rvu\), where \(\E\rvu\rvu^\T=\Omega\).
+We've discussed a variety of estimators of \(\beta\) under different
+conditions, and asserted that many of these can be expressed as the
+solution to a set of linear equations written in matrix form as
+\begin{equation}
+   \mT^\T \vy = \mT^\T \mX\beta,
+\end{equation}
+where \((\mX,\vy)\) are observed data.
+For each of the following estimators, what is \(\mT\), and under what
+conditions will the estimator be (i) consistent; and (ii)
+asymptotically efficient?
+\begin{enumerate}
+\item OLS
+\item Two-stage least squares
+\item Generalized least squares
+\item Generalized Method of Moments
+\item If you replace the matrix \(\mT\) with the matrix \emph{function}
+\(\mT(x)\),  and replace the linear regression with the
+non-parametric form \(\rvy=m(\rvx) + \rvu\), then the kernel regression
+(Nadaraya-Watson) estimator can be similarly expressed in the form
+\(\mT(x)\vy = \mT(x)m(x)\).  What is \(\mT(x)\) in this case?
+\end{enumerate}
+
+\section{Clustered sample}
+\label{sec:orga33187f}
+We wish to estimate a relationship \(\rvy = \rvX\beta + \rvu\), and
+adopt the identifying assumption that \(\E(\rv{Z}^\T\rvu) = 0\), with
+\(\E\rv{Z}^\T\rvX=\mQ\) having full column rank (and more rows than
+columns).
+
+\begin{enumerate}
+\item With an sample of \(N\) observations \((X_i,y_i,Z_i)\), use the
+identifying assumption and the assumption that \(\E
+     \rvu\rvu^\T=\Omega\) (with \(\Omega\) unknown to the econometrician)
+and construct an asymptotically efficient GMM estimator of
+\(\beta\).  Describe its limiting distribution.
+\item As in the previous question, but assume \(\Omega=\sigma^2\mI\)
+(still unobserved).  Compare with the Two-stage least-squares
+estimator.  Compare the efficiency of this estimator with the
+estimator in (1).  Explain.
+\item Now suppose that the sample is based on a clustered-design, so
+that each of the \(N\) observations is drawn from one of \(K\leq
+     N/2\) clusters.  We assume \(\E\rvu_i=\sigma^2\) for all
+observations.  But for any two distinct observations within a
+cluster we assume \(\E \rvu_i\rvu_j = \gamma\), while for two
+observations \emph{across} clusters we assume \(\E \rvu_i\rvu_j = 0\).
+How could you exploit this structure in a GMM estimator?  Compare
+the asymptotic variance of this estimator with that in (1) and
+(2).
+\end{enumerate}
+
+\section{Uniform Random Variables}
+\label{sec:orgc20a2e4}
+Suppose a scalar random variable \(\rvx\) is uniformly distributed on
+the interval \([a,b]\).  Then the \(n\)th moment of \(\rvx\) is given
+  \[
+  \E(\rvx^{n})=\frac {b^{n+1}-a^{n+1}}{(n+1)(b-a)}.
+  \]
+\begin{enumerate}
+\item Suppose we have a sample of \(N\) realizations of \rvx,
+\(\{x_i\}_{i=1}^N\).  Suggest a just identified estimator of the
+unknown parameters \(a\) and \(b\) based on the expression for the
+moments of \rvx.
+\item What can you say about the relationship of the smallest value of
+\(x_i\) in your sample relative to your estimate of \(a\)?
+\item Now suppose that we are interested in testing the \emph{hypothesis}
+that \(\rvx\) is uniformly distributed.   Suggest a practical test
+based again on the moments of \(\rvx\) under the null hypothesis of uniformity.
 \end{enumerate}
 
 \section{Omitted Variables}
-\label{sec:orgca4950d}
+\label{sec:org2df7c01}
 You are asked to serve as a referee for a paper submitted to a top
 field journal.  In the submitted paper the researcher uses a sample
 of size \(N\) to estimate a model
@@ -130,131 +255,55 @@ and (iii).  Try to make your remarks critical yet
 constructive---what shortcomings do you see, and how might the
 author address these?
 
-\section{Breusch-Pagan Extended}
-\label{sec:org052bc99}
-Consider a linear regression of the form
-\[ 
-     y = \alpha + \beta x + u,
-  \]
-with \((y,x)\) both scalar random variables, where it is assumed that
-(a.i) \(\E(u\cdot x) = \E u = 0\) and (a.ii) \(\E(u^2|x)=\sigma^2\).  
+\section{Nested Samples}
+\label{sec:orgdf1ab2a}
+Consider the linear model \(y=X\beta + u\), where \(X\) is thought to
+depend on \(u\), but where we have a set of instruments \(Z\) such that
+\(\E Z^\T u = 0\).  In this case our observations on \(y\) are limited,
+in that we don't always observe \(y\) even when we do observe
+\((X,Z)\).  We can think of this as having two samples, nested in the
+following way.  We have \(N_1\) iid observations on the triple
+\((y,X,Z)_1\) but \(N_2>N_1\) iid observations on \((X,Z)_2\), with \((X,Z)_1\)
+(i.e., the observations on \(X\) and \(Z\) in the first dataset) a
+subset of \((X,Z)_2\).  How can we best make use of all these data?
 \begin{enumerate}
-\item The condition a.i is essentially untestable, but
-\cite{breusch-pagan79} argue that one can test a.ii via an
-auxiliary regression \(\hat{u}^2 = c + d x + e\), where the \(\hat{u}\)
-are the residuals from the first regression, and the test of a.ii
-then becomes a test of \(H_0:d=0\).  Explain both why a.i is untestable, and the logic of
-the test of a.ii.
-\item Use the two conditions a.i and a.ii to construct a GMM version of
-the Breusch-Pagan test.
-\item What can you say  about the performance or relative merits of the
-Bruesch-Pagan test versus your GMM alternative?
-\item Suppose that in fact that \(x\) is distributed uniformly over the
-interval \([0,2\pi]\), and \(\E(u^2|x)=\sigma^2(x)=\sigma^2+\sin(x)\)
-(with \(\sigma^2\) a constant greater than or equal to one), thus
-violating a.ii.  What can you say about the performance of the
-Breusch-Pagan test in this circumstance?  Can you modify your GMM
-test to provide a superior alternative?
-\item In the above, we've considered a test of a specific functional
-form for the variance of \(u\).  Suppose instead that we don't have
-any prior information regarding the form of \(\E(u^2|x)=f(x)\).
-Discuss how you might go about constructing an extended version
-of the Breusch-Pagan test which tests for \(f(x)\) non-constant.
-\item Show that you can use your ideas about estimating \(f(x)\) to
-construct a more efficient estimator of \(\beta\) if \(f(x)\) isn't
-constant.  Relate your estimator to the optimal generalized least
-squares (GLS) estimator.
+\item One econometrician suggests an augmented sort of two-stage-least
+squares approach, using the richer dataset to estimate a
+linear relationship \(X_2 = Z_2\pi + v\), and thus constructing a
+``first-stage'' prediction equation \(\hat{X} = Z\hat{\pi}_2\) which
+is more precisely estimated that it would be in the usual case in
+which only data in \((y,X,Z)_1\) was exploited.
+\begin{enumerate}
+\item Continue the argument by substituting into the second stage.
+What can you say about the properties of the augmented
+estimator compared to the properties of the usual
+two-stage least squares estimator?
+\item Under what conditions would the augmented estimator be
+preferred to two-stage least squares on just the sample of
+\(N_1\) observations?
 \end{enumerate}
 
-\section{Black Lives Matter}
-\label{sec:orgb50b4b9}
-\cite{fryer19} uses data on encounters between police and civilians
-of different races in the US to explore how police use of force is
-related to a civilian's race.  While Fryer finds that Black and
-Hispanic civilians are much more likely to ``experience some form of
-force'' from the police and while the probability of being shot by the police is
-much higher for a civilian who is Black or Hispanic, Fryer's
-most prominent result is that for ``the most extreme use of
-force---officer-involved shootings---we find no racial differences
-either in the raw data or when contextual factors are taken into
-account.''  
-
-Introducing some notation, let \(R\) denote the civilian's race; \(U\)
-some variables observed by the police officer prior to any
-interaction (e.g., observing ``suspicious'' behavior) but not the
-econometrician; \(D\) a binary variable indicating the event (\(D=1\)) of an
-encounter between a given civilian and a police officer; \(V\) a set
-of ``contextual factors'' related to the encounter and reported by the
-officer; and \(S\) the event that the civilian is shot by the officer.
-We can then express Fry's finding regarding shootings as not being
-able to reject either
-\begin{equation}
-\label{eq:fry1}
-    \mbox{Pr}(S|D=1,R) = \mbox{Pr}(S|D=1)
-\end{equation}
-or
-\begin{equation}
-\label{eq:fry2}
-    \mbox{Pr}(S|D=1,V,R) = \mbox{Pr}(S|D=1,V).
-\end{equation}
-
+\item A second econometrician suggests using the smaller sample to
+construct a sample moment condition \((Z_1^\T y_1)=(Z_1^\T X_1)b\),
+and argues that if \(b\) in this condition identifies \(\beta\), then
+it should be possible to construct \(\hat{u}_2 = \hat{y}_2 -
+     X_2b\), and that for this larger set of observations we must have
+\(\E Z_2^\T\hat{u}_2 = 0\).  She argues that these two sets of moment
+conditions could then be combined into an over-identified
+optimally-weighted GMM estimator.
 \begin{enumerate}
-\item \cite{durlauf-heckman20} criticize this conclusion of Fryer's, on
-the grounds that \(D\) may be an endogenous variable.  You needn't
-read their paper, but explain in your own words what sorts of
-endogeneity might undermine Fryer's conclusion that the
-probability of being shot by the police doesn't depend on race.
-
-\item Spell out conditions on \((R,S,U,V,D)\) (perhaps using a causal diagram)
-which would suffice to interpret (1) and (2) as evidence
-that there are no racial differences in the victims of police
-shootings.  In particular, what does one need to assume about
-\(\mbox{Pr}(D=1|R,U)\)?
-
-\item Consider an alternative (``driving while Black'') model in which
-the police use race as a criterion for stopping or otherwise
-interacting with a given civilian.  Compare the causal structure
-of this model with your answer to (2).  Viewed through the lens
-of this model, how would one interpret Fry's failure to reject
-\(\mbox{Pr}(S|D=1,R) = \mbox{Pr}(S|D=1)\)?
-
-\item The Justice Department should care\footnote{The Equal Protection
-Clause of the fourteenth amendment to the US constitution is
-generally interpreted to require ``equality before the law'' for
-all persons subject to the jurisdiction of the various states,
-and the adoption of this amendment shortly after the Civil War
-is regarded as evidence that it was specifically intended to
-prevent discrimination against Black Americans.} about which
-(Fry's or the ``driving while Black'') is the better model.  How
-might one go about testing one against the other?
+\item How would you construct the optimal GMM weighting matrix for
+this approach?  Derive an expression for the asymptotic
+variance matrix for the estimator \(b\).  How does it depend on
+the larger sample?
+\item Comment on this approach.  Does the second set of moment
+conditions add useful information?
+\item If you also knew that \(u\) was homoskedastic how could you
+exploit this information?  How would the resulting estimator
+compare with two-stage-least squares?  What can you say about
+the relative efficiency of this estimator versus two-stage
+least squares?
 \end{enumerate}
-
-\section{Weighting of Linear IV Estimators}
-\label{sec:orgeb9d69d}
-Consider the Linear IV model
-\[
-      y = X\beta + u\qquad \E(Z^\T u)=0.
-  \]
-\begin{enumerate}
-\item Exploiting the moment condition, under what conditions does the
-estimator \(b_{IV}\) satisfying \(Z^\T y = (Z^\T X)b_{IV}\)
-consistently estimate \(\beta\)?
-\item Suppose that \(Z\) has \(\ell\) columns.  Suppose that \(W\) is a symmetric,
-\(\ell\times\ell\) full rank matrix, with a corresponding estimator \(b_W\)
-satisfying \(WZ^\T y = W(Z^\T X)b_{W}\).  Under what conditions
-will this estimator consistently estimate \(\beta\)?
-\item Describe the GMM criterion function that \(b_W\) minimizes.
-\item Consider Hansen's description of the two-stage least squares
-estimator (Section 12.12).  What is \(W\) for this estimator?
-Under what conditions is this the optimally weighted GMM estimator?
-\item \(W=I\) for the \(b_{IV}\) estimator described above.  Under what
-conditions is \(b_{IV}\) the optimally weighted GMM estimator?
-\item For the estimator described in (2), suppose that \(W\) is diagonal,
-with diagonal elements proportional to
-\((1,1/2,1/4,...,2^{1-\ell})\).  Under what conditions is the
-estimator \(b_W\) the optimally weighted estimator?  Can you think
-of a practical example where the optimal weighting matrix might
-have this structure?
 \end{enumerate}
 
 
