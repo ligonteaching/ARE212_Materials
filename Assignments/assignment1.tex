@@ -1,0 +1,239 @@
+% Created 2023-03-13 Mon 08:36
+% Intended LaTeX compiler: pdflatex
+\RequirePackage{rotating}
+\documentclass[12pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{wasysym}
+\newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+\renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+\usepackage{bm}\usepackage{econometrics}
+\newcommand{\T}{\top}
+\newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+%\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
+%\newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+%\newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+%\newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+%\newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+%\newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+%\newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+\newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+\usepackage{dsfont}\newcommand{\one}{\ensuremath{\mathds{1}}}
+\usepackage{xcolor}
+\newcommand{\rv}[1]{\ensuremath{\textcolor{red}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{{}_{rv}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{\underline{#1}{}}}
+\newcommand{\rvy}{\rv{y}}
+\newcommand{\rvX}{\rv{X}}
+\newcommand{\rvx}{\rv{x}}
+\newcommand{\rvu}{\rv{u}}
+\renewcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\renewcommand{\E}{\ensuremath{\mathds{E}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\author{Ethan Ligon}
+\date{Due March 20, 2023}
+\title{Assignment 1}
+\hypersetup{
+ pdfauthor={Ethan Ligon},
+ pdftitle={Assignment 1},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.0.50 (Org mode 9.6)}, 
+ pdflang={English}}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{/home/ligon/bibtex/main.bib}
+\begin{document}
+
+\maketitle
+You should complete all exercises.   You are strongly encouraged to work as a  team, and to turn in a single assignment for grading.   The principal deliverable you turn in should be a pdf.
+\section{Admin}
+\label{sec:org6d0dc06}
+Some steps to help us share code via \texttt{git}:
+\begin{enumerate}
+\item Your team should ``fork'' the repository \url{https://github.com/ligonteaching/ARE212\_Materials}, and each  team member should have ``write'' access to the repo.
+\item When submitting code for assignments, please provide links to that code in the pdf.
+\end{enumerate}
+\section{Exercises}
+\label{sec:orgd1d955e}
+\begin{enumerate}
+\item From ARE210, recall (Section 9 in Mahajan's ``Handout 1'') the rule for
+computing the distribution of certain transformations of random
+variables (The ``inverse Jacobian rule'').
+
+Let \((\rvx,\rvy)\) be independently distributed continuous random
+variables possessing densities \(f_x\) and \(f_y\).  Let \(\rv{z} = \rvx +
+      \rvy\).  Use the rule to obtain an expression for the distribution
+of \(\rv{z}\).
+
+\item We've discussed ways to program a convolution of random
+variables in a Jupiter notebook [\href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/random\_variables0.ipynb)}{ipynb}] [\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=random\_variables0.ipynb}{datahub}].  As in the
+notebook, consider a discrete random variable \(s\) and a continuous random variable \(x\).
+Prove that the convolution of \(\rv{s}\) and \(\rvx\) (or, informally,
+\(\rvx+\rv{s}\)) has a continuous distribution, as suggested by the figure at
+the end of the notebook, \textbf{or} establish that the figure is wrong or
+misleading.
+
+\item Let \(\mA\) be an \(m\times n\) matrix.  A matrix \(\mA^-\) is a
+\emph{generalized inverse} of \(\mA\) if \(\mA\mA^-\mA=\mA\).  Such a generalized
+inverse can be shown to always exist.  If \(\mA\) is a matrix
+of zeros, what can we say about \(\mA^-\)?
+
+\item Econometricians spend a great deal of time writing down
+linear regressions relating an object ``Why'' to an object ``Ex'', but
+sometimes use quite distinct notations to express this
+regression.  Following our discussion in class, suggest a
+notation for each of the three following cases:
+
+\begin{enumerate}
+\item ``Why'' is a scalar random variable, while ``Ex'' is a vector
+random variable;
+
+\item ``Why'' is a single \emph{realization} of a scalar random variable,
+while ``Ex'' is similarly a single \emph{realization};
+
+\item ``Why'' is a \emph{vector} of \(N\) realizations, while ``Ex'' is
+similarly a \emph{matrix} of realizations.
+\end{enumerate}
+
+\item Let \(\mA\) be an \(m\times n\) matrix.
+\end{enumerate}
+
+\begin{center}
+\fbox{
+\begin{minipage}[c]{.6\linewidth}
+Moore-Penrose Inverse
+
+\rule[.8em]{\linewidth}{2pt}
+
+A matrix \(\mA^+\) is a ``Moore-Penrose'' generalized inverse if:
+
+\begin{itemize}
+\item \(\mA\mA^+\mA = \mA\);
+\item \(\mA^+\mA\mA^+ = \mA^+\);
+\item \(\mA^+\mA\) is symmetric; and
+\item \(\mA\mA^+\) is symmetric.
+\end{itemize}
+\end{minipage}
+}
+\end{center}
+
+\begin{center}
+\fbox{
+\begin{minipage}[c]{.6\linewidth}
+Full rank factorization
+
+\rule[.8em]{\linewidth}{2pt}
+
+Let \(\mA\) be an \(n\times m\) matrix of rank \(r\).  If \(\mA = \mL\mR\), where \(\mL\) is a      \(n\times r\) full column rank matrix, and \(\mR\) is a \(r\times m\) full row rank matrix, then \(\mL\mR\) is a \emph{full rank factorization} of \(\mA\).
+\end{minipage}
+}
+\end{center}
+\begin{center}
+\fbox{
+\begin{minipage}[c]{.6\linewidth}
+Fact
+
+\rule[.8em]{\linewidth}{2pt}
+
+Provided only that \(r>0\), the Moore-Penrose inverse \(\mA^+ = \mR^{\T}(\mL^{\T}\mA\mR^{\T})^{-1}\mL^{\T}\) exists and is unique.
+\end{minipage}
+}
+\end{center}
+\begin{enumerate}
+\item If \(\mA\) is a matrix of zeros, what is \(\mA^+\)?
+
+\item Show  that if \(\mX\) has full column rank, then \(\mX^+=(\mX^\T\mX)^{-1}\mX^\T\) (this is sometimes called the ``left inverse), and \(\mX^+\mX=\mI\).
+\item Use the result of (2) to solve for \(\vb\) in the (matrix) form of the regression  \(\vy = \mX b + \vu\) if \(\mX^{\T}\vu=0\).
+\end{enumerate}
+
+\section{Convolutions}
+\label{sec:org82c7f2e}
+We've discussed ways to program a convolution of random variables in a
+Jupyter notebook [\href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/random\_variables0.ipynb)}{ipynb}] [\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=random\_variables0.ipynb}{datahub}].
+
+\begin{enumerate}
+\item As in the notebook, consider a discrete random variable \(s\) and
+a continuous random variable \(x\).  Prove that the convolution
+of \(s\) and \(x\) (or, informally, \(x+s\)) has a continuous
+distribution, as suggested by the figure at the end of the
+notebook, \textbf{or} establish that the figure is wrong or misleading.
+
+\item The notebook develops a simple class
+\texttt{ConvolvedContinuousAndDiscrete} to allow for the creation and
+manipulations of (you guessed it) convolutions of a continuous rv
+with a discrete rv.  Can you develop a similar class for
+convolutions of independent discrete random variables?
+
+\item Same as (2), but convolutions of independent continuous random variables?
+\end{enumerate}
+\section{General Weighted Linear Regressions}
+\label{sec:org5a3dc62}
+List the main regression estimators you encountered in the first half of the class.  For each estimator, establish whether it belongs to the class of general weighted linear regressions
+\begin{equation}
+   T'Y = T'X\beta + T'u.
+\end{equation}
+For the estimator you've listed, if it is a general weighted linear regression then what is the form of \(T\)?  Is \(T\) random?  If the estimator is \emph{not} in this class, show why.
+
+\section{Simultaneous Equations}
+\label{sec:org9f84667}
+When we defined the general weighted regression, we didn't assume
+anything about the \textbf{dimension} of the different objects except that
+they were 'conformable.'
+
+So: consider
+\begin{equation}
+    y = X\beta + u,\qquad\text{with $\mbox{E}T'u = 0$,}
+\end{equation}
+and where \(y=[y_1,y_2,\dots,y_k]\), so that if you had a sample of \(N\)
+observations realizations of \(y\) would be an \(N\times k\) matrix.
+
+\begin{enumerate}
+\item What does our assumption of conformability then imply about the
+dimensions of \(X\), \(\beta\), \(T\), and \(u\)?
+\item Could you use the estimator we developed in
+\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=weighted\_regression.ipynb}{weighted\_regression.ipynb} to estimate this system of
+simultaneous equations?
+\item Extend the code in \href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=weighted\_regression.ipynb}{weighted\_regression.ipynb} to actually
+estimate \(\beta\) in the case with \(k=3\).
+\item What additional assumptions are necessary to estimate the
+distribution of the estimator of \(\beta\)?
+\end{enumerate}
+\section{SUR}
+\label{sec:org3bd8e95}
+Picking up from the discussion of simultaneous equations above, where
+\(y\) is \(N\times k\), and
+\begin{equation}
+     y = X\beta + u.
+\end{equation}
+
+If \(X\) is \(N\times\ell\) and \(\mbox{cov}(u|X) = \Omega\) then this
+is a generalization of the assumption of homoskedasticity to a
+multivariate setting; the resulting structure is called a system of
+“Seemingly Unrelated Regressions” (SUR).
+
+\begin{enumerate}
+\item If \(\Omega\) isn't diagonal then there's a sense in which the
+different equations in the system are dependent, since observing a
+realization of, say, \(y_1\) may change our prediction of \(y_2\).
+(This is why the system is called ``seemingly'' unrelated.) Describe
+this dependence formally.
+\item Adapt the code in
+\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=weighted\_regression.ipynb}{weighted\_regression.ipynb}
+so that the data-generating process for \(u\) can accommodate a
+general covariance matrix such as \(\Omega\), and let \(X=T\). Estimate \(\beta\).
+\item How are the estimates obtained from this SUR system different from
+what one would obtain if one estimated equation by equation using
+OLS?
+\end{enumerate}
+\end{document}
