@@ -1,4 +1,4 @@
-% Created 2023-03-13 Mon 08:36
+% Created 2023-03-29 Wed 15:29
 % Intended LaTeX compiler: pdflatex
 \RequirePackage{rotating}
 \documentclass[12pt]{amsart}
@@ -42,7 +42,7 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \author{Ethan Ligon}
-\date{Due March 20, 2023}
+\date{Due April 3, 2023}
 \title{Assignment 1}
 \hypersetup{
  pdfauthor={Ethan Ligon},
@@ -58,14 +58,14 @@
 \maketitle
 You should complete all exercises.   You are strongly encouraged to work as a  team, and to turn in a single assignment for grading.   The principal deliverable you turn in should be a pdf.
 \section{Admin}
-\label{sec:org6d0dc06}
+\label{sec:orge0c0d69}
 Some steps to help us share code via \texttt{git}:
 \begin{enumerate}
 \item Your team should ``fork'' the repository \url{https://github.com/ligonteaching/ARE212\_Materials}, and each  team member should have ``write'' access to the repo.
 \item When submitting code for assignments, please provide links to that code in the pdf.
 \end{enumerate}
 \section{Exercises}
-\label{sec:orgd1d955e}
+\label{sec:orge9ea08a}
 \begin{enumerate}
 \item From ARE210, recall (Section 9 in Mahajan's ``Handout 1'') the rule for
 computing the distribution of certain transformations of random
@@ -158,7 +158,7 @@ Provided only that \(r>0\), the Moore-Penrose inverse \(\mA^+ = \mR^{\T}(\mL^{\T
 \end{enumerate}
 
 \section{Convolutions}
-\label{sec:org82c7f2e}
+\label{sec:orge40bd9e}
 We've discussed ways to program a convolution of random variables in a
 Jupyter notebook [\href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/random\_variables0.ipynb)}{ipynb}] [\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=random\_variables0.ipynb}{datahub}].
 
@@ -178,7 +178,7 @@ convolutions of independent discrete random variables?
 \item Same as (2), but convolutions of independent continuous random variables?
 \end{enumerate}
 \section{General Weighted Linear Regressions}
-\label{sec:org5a3dc62}
+\label{sec:orgb9a2ace}
 List the main regression estimators you encountered in the first half of the class.  For each estimator, establish whether it belongs to the class of general weighted linear regressions
 \begin{equation}
    T'Y = T'X\beta + T'u.
@@ -186,7 +186,7 @@ List the main regression estimators you encountered in the first half of the cla
 For the estimator you've listed, if it is a general weighted linear regression then what is the form of \(T\)?  Is \(T\) random?  If the estimator is \emph{not} in this class, show why.
 
 \section{Simultaneous Equations}
-\label{sec:org9f84667}
+\label{sec:org3e74bc1}
 When we defined the general weighted regression, we didn't assume
 anything about the \textbf{dimension} of the different objects except that
 they were 'conformable.'
@@ -210,7 +210,7 @@ estimate \(\beta\) in the case with \(k=3\).
 distribution of the estimator of \(\beta\)?
 \end{enumerate}
 \section{SUR}
-\label{sec:org3bd8e95}
+\label{sec:orgd220e1f}
 Picking up from the discussion of simultaneous equations above, where
 \(y\) is \(N\times k\), and
 \begin{equation}
@@ -236,4 +236,51 @@ general covariance matrix such as \(\Omega\), and let \(X=T\). Estimate \(\beta\
 what one would obtain if one estimated equation by equation using
 OLS?
 \end{enumerate}
+
+\section{Food expenditures in India}
+\label{sec:orgdb42c33}
+The NSS surveys in India pioneered (in considerable part due to
+Mahalanobis) a wide variety of methodological innovations in
+sampling, questionnaire design, and have been
+among the most ambitious regularly collected data on
+household behavior and characteristics until recently.
+
+The most recently publicly released data on household expenditures
+was the ``68th round'', collected in 2011--12.  (More recent data has
+been collected, but suppressed for political reasons.)  Data on
+household-level total food (and a few other non-durable)
+expenditures from the 68th round is available \href{https://drive.google.com/drive/folders/1z2-XcRHuCpsIBbYRvGe3nxga8gCKICVA?usp=sharing}{here}, in the file
+\texttt{total\_expenditures.parquet}.  (You can use the
+\texttt{pandas.read\_parquet} method to read these files--you may need to
+install some additional dependencies such as \texttt{pyarrow}.).
+
+\begin{enumerate}
+\item Use these data to produce a figure describing
+the distribution of non-durable expenditures across households,
+measured in INR, using a Gaussian kernel and some bandwidth \(h\).  What
+are the strengths and weaknesses of your figure in terms of what
+it conveys about the underlying distribution?  Can weaknesses be
+addressed by choosing a different bandwidth or kernel?  (Nothing
+formal required here---I encourage you to simply play around.)
+\item Once you've arrived at some favorite kernel \& bandwidth (say
+$$\hat{f}^h(x)$$) describing the density of expenditures, can you
+use the ``inverse Jacobian'' rule to describe instead the density
+of \emph{log} expenditures?  Write code to produce this figure.
+\item Instead of the route you've taken in (2), choose some kernel \&
+bandwidth to estimate the density of log expenditures directly.
+How do the approaches of (2) and (3) compare?
+\end{enumerate}
+
+\section{``Plug-in'' Kernel Bias Estimator}
+\label{sec:orge35182f}
+
+In our discussion of bias of the kernel density estimator in lecture we
+constructed an ``Oracle'' estimator, which can be implemented when we
+know the true density $$f$$ that we're trying to estimate.
+
+Of course, the Oracle estimator is only feasible when we don't need it.  What
+about the idea of using the same expression for bias as in the Oracle
+case, but replacing \(f\) with our estimate \(\hat{f}\)?  Would this tell
+us anything useful?  If so, under what conditions?  What pitfalls
+might one encounter?
 \end{document}
