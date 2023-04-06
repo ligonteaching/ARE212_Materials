@@ -1,0 +1,234 @@
+% Created 2023-04-05 Wed 19:27
+% Intended LaTeX compiler: pdflatex
+\RequirePackage{rotating}
+\documentclass[12pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{wasysym}
+\newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+\renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+\usepackage{bm}\usepackage{econometrics}
+\usepackage{breqn}
+\newcommand{\T}{\top}
+\newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+%\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
+%\newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+%\newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+%\newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+%\newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+%\newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+%\newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+\newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+\usepackage{dsfont}\newcommand{\one}{\ensuremath{\mathds{1}}}
+\usepackage{xcolor}
+\newcommand{\rv}[1]{\ensuremath{\textcolor{red}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{{}_{rv}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{\underline{#1}{}}}
+\newcommand{\rvy}{\rv{y}}
+\newcommand{\rvX}{\rv{X}}
+\newcommand{\rvx}{\rv{x}}
+\newcommand{\rvu}{\rv{u}}
+\newcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\renewcommand{\E}{\ensuremath{\mathds{E}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\author{Ethan Ligon}
+\date{Due April 17, 2023}
+\title{Assignment 2}
+\hypersetup{
+ pdfauthor={Ethan Ligon},
+ pdftitle={Assignment 2},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.0.50 (Org mode 9.6.1)}, 
+ pdflang={English}}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{/home/ligon/bibtex/main.bib}
+\begin{document}
+
+\maketitle
+\section{Exercises (Identifying assumptions for regression)}
+\label{sec:org4cbc2b7}
+
+\begin{enumerate}
+\item Evaluate the truth of following statement: ``In the linear regression \(y=X\beta + u\) the usual identifying assumption \(\E(u|X)=0\) (call this an assumption of ''mean independence``) implies \(\E(h(X)\cdot u)=0\) for any function \(h\) satisfying some regularity conditions related to measurability.''
+
+\item Suppose \(y\), \(x\) and \(u\) are scalar random variables, with \(y\) and \(x\) observed but \(u\) unobserved.  Consider the function \(h(x)=x^3\); under standard assumptions this satisfies our concerns about measurability, so \(\E(u|x)=0\) implies \(\E(ux^3)=0\).   Use this last condition to motivate a simple least squares estimator.  How does this differ from the usual OLS estimator?  Why might one prefer one to the other, and under what conditions?
+
+\item Sometimes we will encounter estimators (e.g., Maximum likelihood) that adopt an assumption of \emph{independence}, rather than mean independence.  In the current setting this might be expressed as something like \(\mbox{Pr}(\rvx<x \cap \rvu<u)=F(x)G(u)\) for some cumulative distribution functions \(F\) and \(G\).  Show that independence implies mean independence, but not the converse.
+
+\item Related to the previous: Show that while \(\rvu\) mean independent of \(\rvx\) implies \(\E(uh(x))=\E(u)=0\), independence also implies \(\E(g(u)x)=\E x\).
+
+\item Suppose that \(y=f(X)+u\) for some unknown but continuous function \(f\).  Suppose we want to use observed data on \(X\) to predict outcomes \(y\), and seek a predictor \(\hat{y}(X)\) which is ``best'' in the sense that the (expected) mean squared prediction error \(\E (y-\hat{y}(X)|X)^2\) is minimized.  What can we say about \(\hat{y}\) and its relation to the conditional expectation \(\E(y|X)\)?  Its relation to \(u\)?
+
+\item Let \(y = X\beta + u\), and let \(D\) be a binary random variable. with \(\E(u|D)=0\) and \(\E(X|D)\neq\E(X)\).  Establish that \(D\) is a valid instrument, and work out a particularly simple expression for the IV estimator in this case.  Discuss.
+
+\item Write out the two causal diagrams which justify, respectively, the least squares estimator and the IV estimator.  What would it mean for one model to be correct, but not the other?  How could you test this?
+\end{enumerate}
+\section{Wright (1928)}
+\label{sec:org4238d3e}
+\nocite{wright1928}
+  Consider the canonical demand and supply model in which quantity
+  supplied is a function of price and a set of ``supply shifters'';
+  quantity demanded is a function of price and set of ``demand
+  shifters''; and market clearing implies that at some price quantity
+  demanded is equal to quantity supplied.
+
+A linear version of this model is fully specified and solved in
+\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=wright34.ipynb}{this Jupyter Notebook}.
+
+Consider the following questions:
+
+\begin{enumerate}
+\item (Control) What is the expected demand if we \emph{set} the price \(p=p_0\)?
+\item (Condition) What is the expected demand if we \emph{observe} \(p=p_0\)?
+\item (Counterfactual) If prices and quantities are observed to be
+\((p_0,q_0)\), what \textbf{would} demand be if we \textbf{were} to \emph{change} the
+ price to \(p_1\), \emph{ceteris paribus}?
+\end{enumerate}
+
+Answers could be mathematical expressions, or code that answers the
+question for the model given in the Jupyter notebook.
+\section{``Plausibly Exogenous''}
+\label{sec:org452eadf}
+
+The Wright (1934) model we've described takes the form
+\begin{equation}
+   y = X\beta + u
+\end{equation}
+with a right-hand-side variable (price) that depends on the
+disturbance \(u\).
+
+Were we to estimate the \emph{regression} equation \(y = Xb + e\) using least
+squares, we would obtain \(b=X^+y = \beta + X^+u\); we cannot \emph{identify} \(b\)
+with \(\beta\) because of the unknown and unobservable term \(X^+u\).
+
+\begin{enumerate}
+\item We previously found that with some instrumental variables \(Z\)
+satisfying the moment condition \(\mbox{E}(u^\T Z)=0\), it becomes possible
+to identify \(\beta\).  Explain in detail how this works, and exactly
+what assumptions are required.
+\end{enumerate}
+
+\textcite{conley-etal12} describe methods for dealing with cases in which
+the moment condition \(\mbox{E}(u^T Z)=0\) is violated, so that in a regression
+\begin{equation}
+   y = X\beta + Z\gamma + u
+\end{equation}
+estimates of the parameter vector \(\gamma\) may be non-zero, but where
+\(\gamma\)\$ is nevertheless ``small''.
+
+\begin{enumerate}
+\item Modify the framework we developed for exploring the  Wright (1934)
+model so that the data generating process \texttt{linear\_dgp} allows for \(\gamma\neq
+   0\), and explore how estimator \(b(\gamma)\) varies with
+\(\gamma\).
+
+\item Calculate a region \(A\) over which one might \emph{fail to reject} (i.e.,
+``Accept'') the null hypothesis that \(b(\gamma)=b(0)\) at a
+conventional level of significance.  Discuss.
+
+\item Further modify the framework so that the covariance of \(Z\) and
+\(X\) is equal to a parameter \(\sigma_{XZ}\).  Calculate the set
+\(B\) of pairs \((\gamma,\sigma_{XZ})\) such that one would fail to
+reject the same null hypothesis at the same level of significance.
+Discuss.
+\end{enumerate}
+\section{Weak Instruments}
+\label{sec:org241fae8}
+This problem explores the problem of weak instruments.  The basic setup should be familiar, with
+\begin{dgroup}
+\begin{dmath*}
+   y = \beta x  + u
+\end{dmath*}
+\begin{dmath*}
+   x = Z\pi + v
+\end{dmath*}
+\end{dgroup}.
+Note that we've assumed that \(x\) is a scalar random variable, and that \(Z\) is an \(\ell\)-vector.  (In general we might have \(k\) endogenous \(x\) variables, so long as we have \(\ell>k\).)
+\begin{enumerate}
+\item Construct a data-generating process \texttt{dgp} which takes as arguments \((n,\beta,\pi)\) and returns a triple \((y,x,Z)\) of \(n\) observations.
+\item Use the \texttt{dgp} function you've constructed to explore IV (2SLS) estimates of \(\beta\) as a function of \(\pi\) when \(\ell=1\) using a Monte Carlo approach, assuming homoskedastic errors.
+\begin{enumerate}
+\item Write a function \texttt{two\_sls} which takes as arguments \((y,x,Z)\) and returns two-stage least squares estimates of \(\beta\) and the standard error of the estimate.
+\item Taking \(\beta=\pi=1\), use repeated draws from \texttt{dgp} to check the bias, and precision of the \texttt{two\_sls} estimator, as well as the size and power of a \(t\)-test of the hypothesis that \(\beta=0\).  Discuss.  Does a 95\% confidence interval (based on your 2SLS estimator) correctly cover 95\% of your Monte Carlo draws?
+
+\item Taking \(\beta=1\), but allowing \(\pi\in[0,1]\) again evaluate the bias and precision of the estimator, and the  size and power of a \(t\)-test.  The \(Z\) instrument is ``weak'' when \(\pi\) is ``close'' to zero.  Comment on how a weak instrument affects two-stage least squares estimators.
+\end{enumerate}
+\item Now consider another ``weak'' instruments problem.  Consider the sequence \(\{1,1/2,1/4,1/8,\dots\}\).  Let \(\ell=1,2,3,\dots\), and for a particular value of \(\ell\) let the vector of parameters \(\pi_\ell\) consist of the first \(\ell\) elements of the sequence.  Thus, your \texttt{dgp} should now return \(Z\) we can treat as an \(n\times\ell\) matrix, with successive columns of \(Z\) increasingly ``weak'' instruments.
+\begin{enumerate}
+\item Taking \(\beta=1\), but allow \(\ell\) to increase \((\ell=1,2,...)\).   Note that for \(\ell>1\) this is now an ``overidentified'' estimator.  Describe the bias and precision of the estimator, and the  size and power of a \(t\)-test.  Compare with the case of \(\ell=1\) and \(\pi=1\).
+\item What can you say about the optimal number of instruments (choice of \(\ell\)) in this case?
+\end{enumerate}
+\end{enumerate}
+
+\section{A Simple Approach to Inference with Weak Instruments}
+\label{sec:org7a8b648}
+\textcite{chernozhukov-hansen08} propose a very simple way to handle inference in a linear IV model, even in the case in which instruments are many and/or weak.  This problem explores the problem of weak instruments, and their method of inference.  The basic setup should be identical to the above, with
+\begin{dgroup}
+\begin{dmath*}
+   y = \beta x  + u
+\end{dmath*}
+\begin{dmath*}
+   x = Z\pi + v
+\end{dmath*}
+\end{dgroup}.
+In this problem you will use the same \texttt{dgp} as in the previous problem.
+
+The idea of \citeauthor{chernozhukov-hansen08} is simple: If we can specify a regression in which all the endogenous variables are on the left-hand side, then OLS is consistent.  So, they subtract \(\beta_0 x\) from both sides of the estimating equation (for some choice of \(\beta_0\)), and then use the expression for \(x\) to substitute using \(Z\), or
+\begin{align*}
+y - \beta_0x &= x(\beta-\beta_0) + u \\
+y - \beta_0x &= (Z\pi + v)(\beta-\beta_0) + u \\
+y - \beta_0x &= Z\gamma  + w.
+\end{align*}
+The key is that if \(\beta_0=\beta\), then we will have \(\gamma=0\).  So the idea is to try to find \(\beta_0\) such that OLS estimates of \(\gamma\) in \(y-\beta_0x = Z\gamma + w\) are close to zero.
+
+\begin{enumerate}
+\item Again suppose that the true \(\beta=1\).  Write a function which takes as arguments \((y,x,Z,\beta_0)\) and which returns the \(p\)-value associated with the hypothesis that every element of \(\hat{\gamma}\) is zero (an \(F\)-test would be appropriate).  Note that this same \(p\)-value characterizes the hypothesis test that \(\beta=\beta_0\).
+
+\item Using your function and taking \(\pi=1\), estimate \(\beta\) by finding the value of \(\beta_0\) which delivers maximal \(p\)-values.  Describe the bias and precision of this estimator.
+
+\item Use the fact we've described about \(p\)-values above to construct 95\% confidence intervals for your estimator of \(\beta\).  Consider the coverage of this 95\% confidence interval, as in the previous question.  How does this compare with the 2SLS case?
+
+\item What happens to the coverage of your test as \(\pi\) goes from 1 toward zero?  How does this compare with the 2SLS case?
+
+\item Using the same construction of ``many instruments'' as in the previous question, how does the coverage of your test change as \(\ell\) grows large?  Again, compare with 2SLS.
+\end{enumerate}
+\section{Angrist-Krueger (1991) Replication}
+\label{sec:orge8b46f7}
+You'll find \href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/angrist-krueger91.dta}{data} from a famous paper by \textcite{angrist-krueger91} in
+the ARE212\_Materials repository, along with a \href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/angrist\_krueger91.pdf}{pdf} of the paper.  The
+paper uses information on ``quarter of birth'' as an instrument for
+(endogenous) education to measure returns to education.
+
+The first specification in the paper is given in their equations (1)
+and (2).
+
+\begin{enumerate}
+\item What is the (implicit) identifying assumption?  Comment on
+its plausibility.
+\item Using their data, estimate (2), replicating the
+figures in their Table 5, using the conventional two-stage least squares IV estimator
+(what they call TSLS).
+\item Repeat (2), but for the specification reported in their Table 7
+(which has many more instruments).  Summarize what the above
+exercises tell us about returns to education.
+\item Adapt your implementation of the \citeauthor{chernozhukov-hansen08} estimator to estimate the key parameter \(\rho\), first for the Table 5 specification, then the Table 7 specification.  How does your point estimate compare?
+\item Same as (4), but construct 95\% confidence intervals using both 2SLS and your new estimator.  How do these compare?  Which estimator do you prefer, and why?
+\end{enumerate}
+
+Two useful pandas tricks to know for this exercise:
+\texttt{pandas.read\_stata}, \texttt{pandas.get\_dummies}.
+
+\printbibliography
+\end{document}
