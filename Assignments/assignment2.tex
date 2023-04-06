@@ -1,4 +1,4 @@
-% Created 2023-04-05 Wed 19:27
+% Created 2023-04-05 Wed 19:55
 % Intended LaTeX compiler: pdflatex
 \RequirePackage{rotating}
 \documentclass[12pt]{amsart}
@@ -57,26 +57,27 @@
 \begin{document}
 
 \maketitle
+You are strongly encouraged to work as a  team, and to turn in a single assignment for grading.   The principal deliverable you turn in should be a link to a \texttt{github} repository.  Please complete work on \textbf{four} of the following six sections, your choice (but all of this material is fair game for the final).
 \section{Exercises (Identifying assumptions for regression)}
-\label{sec:org4cbc2b7}
+\label{sec:org93a3c76}
 
 \begin{enumerate}
 \item Evaluate the truth of following statement: ``In the linear regression \(y=X\beta + u\) the usual identifying assumption \(\E(u|X)=0\) (call this an assumption of ''mean independence``) implies \(\E(h(X)\cdot u)=0\) for any function \(h\) satisfying some regularity conditions related to measurability.''
 
-\item Suppose \(y\), \(x\) and \(u\) are scalar random variables, with \(y\) and \(x\) observed but \(u\) unobserved.  Consider the function \(h(x)=x^3\); under standard assumptions this satisfies our concerns about measurability, so \(\E(u|x)=0\) implies \(\E(ux^3)=0\).   Use this last condition to motivate a simple least squares estimator.  How does this differ from the usual OLS estimator?  Why might one prefer one to the other, and under what conditions?
+\item Suppose \(y\), \(x\) and \(u\) are scalar random variables, with \(y\) and \(x\) observed but \(u\) unobserved.  Consider the function \(h(x)=x^3\); under standard assumptions this satisfies our concerns about measurability, so \(\E(u|x)=0\) implies \(\E(ux^3)=0\).   Use this last condition to motivate a simple least squares estimator of the regression equation \(y=\alpha + \beta x + u\).  How does this differ from the usual OLS estimator?  Why might one prefer one to the other, and under what conditions?
 
 \item Sometimes we will encounter estimators (e.g., Maximum likelihood) that adopt an assumption of \emph{independence}, rather than mean independence.  In the current setting this might be expressed as something like \(\mbox{Pr}(\rvx<x \cap \rvu<u)=F(x)G(u)\) for some cumulative distribution functions \(F\) and \(G\).  Show that independence implies mean independence, but not the converse.
 
-\item Related to the previous: Show that while \(\rvu\) mean independent of \(\rvx\) implies \(\E(uh(x))=\E(u)=0\), independence also implies \(\E(g(u)x)=\E x\).
+\item Related to the previous: Show that while \(\rvu\) mean independent of \(\rvx\) implies \(\E(\rvu h(\rvx))=\E(\rvu)=0\), independence also implies \(\E(g(\rvu)\rvx)=\E \rvx\E g(\rvu)\).
 
-\item Suppose that \(y=f(X)+u\) for some unknown but continuous function \(f\).  Suppose we want to use observed data on \(X\) to predict outcomes \(y\), and seek a predictor \(\hat{y}(X)\) which is ``best'' in the sense that the (expected) mean squared prediction error \(\E (y-\hat{y}(X)|X)^2\) is minimized.  What can we say about \(\hat{y}\) and its relation to the conditional expectation \(\E(y|X)\)?  Its relation to \(u\)?
+\item Suppose that \(y=f(X)+u\) for some unknown but continuous function \(f\).  Suppose we want to use observed data on \(X\) to predict outcomes \(y\), and seek a predictor \(\hat{y}(X)\) which is ``best'' in the sense that the (expected) mean squared prediction error \(\E [(y-\hat{y}(X))^2|X)\) is minimized.  What can we say about \(\hat{y}\) and its relation to the conditional expectation \(\E(y|X)\)?  Its relation to \(u\)?
 
 \item Let \(y = X\beta + u\), and let \(D\) be a binary random variable. with \(\E(u|D)=0\) and \(\E(X|D)\neq\E(X)\).  Establish that \(D\) is a valid instrument, and work out a particularly simple expression for the IV estimator in this case.  Discuss.
 
 \item Write out the two causal diagrams which justify, respectively, the least squares estimator and the IV estimator.  What would it mean for one model to be correct, but not the other?  How could you test this?
 \end{enumerate}
 \section{Wright (1928)}
-\label{sec:org4238d3e}
+\label{sec:org3711015}
 \nocite{wright1928}
   Consider the canonical demand and supply model in which quantity
   supplied is a function of price and a set of ``supply shifters'';
@@ -100,7 +101,7 @@ Consider the following questions:
 Answers could be mathematical expressions, or code that answers the
 question for the model given in the Jupyter notebook.
 \section{``Plausibly Exogenous''}
-\label{sec:org452eadf}
+\label{sec:org7e84d5b}
 
 The Wright (1934) model we've described takes the form
 \begin{equation}
@@ -121,12 +122,12 @@ what assumptions are required.
 \end{enumerate}
 
 \textcite{conley-etal12} describe methods for dealing with cases in which
-the moment condition \(\mbox{E}(u^T Z)=0\) is violated, so that in a regression
+the moment condition \(\mbox{E}(u^\T Z)=0\) is violated, so that in a regression
 \begin{equation}
    y = X\beta + Z\gamma + u
 \end{equation}
 estimates of the parameter vector \(\gamma\) may be non-zero, but where
-\(\gamma\)\$ is nevertheless ``small''.
+\(\gamma\) is nevertheless ``small''.
 
 \begin{enumerate}
 \item Modify the framework we developed for exploring the  Wright (1934)
@@ -145,7 +146,7 @@ reject the same null hypothesis at the same level of significance.
 Discuss.
 \end{enumerate}
 \section{Weak Instruments}
-\label{sec:org241fae8}
+\label{sec:org05e337e}
 This problem explores the problem of weak instruments.  The basic setup should be familiar, with
 \begin{dgroup}
 \begin{dmath*}
@@ -173,7 +174,7 @@ Note that we've assumed that \(x\) is a scalar random variable, and that \(Z\) i
 \end{enumerate}
 
 \section{A Simple Approach to Inference with Weak Instruments}
-\label{sec:org7a8b648}
+\label{sec:org72d7aad}
 \textcite{chernozhukov-hansen08} propose a very simple way to handle inference in a linear IV model, even in the case in which instruments are many and/or weak.  This problem explores the problem of weak instruments, and their method of inference.  The basic setup should be identical to the above, with
 \begin{dgroup}
 \begin{dmath*}
@@ -205,7 +206,7 @@ The key is that if \(\beta_0=\beta\), then we will have \(\gamma=0\).  So the id
 \item Using the same construction of ``many instruments'' as in the previous question, how does the coverage of your test change as \(\ell\) grows large?  Again, compare with 2SLS.
 \end{enumerate}
 \section{Angrist-Krueger (1991) Replication}
-\label{sec:orge8b46f7}
+\label{sec:org104cab4}
 You'll find \href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/angrist-krueger91.dta}{data} from a famous paper by \textcite{angrist-krueger91} in
 the ARE212\_Materials repository, along with a \href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/angrist\_krueger91.pdf}{pdf} of the paper.  The
 paper uses information on ``quarter of birth'' as an instrument for
