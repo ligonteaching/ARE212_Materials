@@ -1,0 +1,199 @@
+% Created 2023-04-17 Mon 18:42
+% Intended LaTeX compiler: pdflatex
+\RequirePackage{rotating}
+\documentclass[12pt]{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{wasysym}
+\newcommand{\Cov}{\ensuremath{\mbox{Cov}}}
+\renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
+\newcommand{\Eq}[1]{(\ref{eq:#1})}
+\usepackage{bm}\usepackage{econometrics}
+\usepackage{breqn}
+\newcommand{\T}{\top}
+\newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
+%\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
+%\newtheorem{theorem}{Theorem} \newcommand{\Thm}[1]{Theorem \ref{thm:#1}}
+%\newtheorem{corollary}{Corollary} \newcommand{\Cor}[1]{Corollary \ref{cor:#1}}
+%\newtheorem{remark}{Remark} \newcommand{\Rem}[1]{Remark \ref{rem:#1}}
+%\newtheorem{condition}{Condition} \newcommand{\Cond}[1]{Condition \ref{cond:#1}}
+%\newtheorem{lemma}{Lemma} \newcommand{\Lem}[1]{Lemma \ref{lem:#1}}
+%\newtheorem{assumption}{Assumption} \newcommand{\Ass}[1]{Assumption \ref{ass:#1}}
+\newcommand{\Fig}[1]{Figure \ref{fig:#1}} \newcommand{\Tab}[1]{Table \ref{tab:#1}}
+\usepackage{dsfont}\newcommand{\one}{\ensuremath{\mathds{1}}}
+\usepackage{xcolor}
+\newcommand{\rv}[1]{\ensuremath{\textcolor{red}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{{}_{rv}{#1}{}}}
+%\newcommand{\rv}[1]{\ensuremath{\underline{#1}{}}}
+\newcommand{\rvy}{\rv{y}}
+\newcommand{\rvX}{\rv{X}}
+\newcommand{\rvx}{\rv{x}}
+\newcommand{\rvu}{\rv{u}}
+\newcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\renewcommand{\E}{\ensuremath{\mathds{E}}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\author{Ethan Ligon}
+\date{\today}
+\title{Assignment 3 (Part A)}
+\hypersetup{
+ pdfauthor={Ethan Ligon},
+ pdftitle={Assignment 3 (Part A)},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.0.50 (Org mode 9.6.1)}, 
+ pdflang={English}}
+\usepackage[style=authoryear]{biblatex}
+\addbibresource{/home/ligon/bibtex/main.bib}
+\begin{document}
+
+\maketitle
+This is the first part of Assignment 3, focusing on GMM.  I'll distribute a part B once it becomes a little more clear how much additional material we'll be able to cover before the end of the semester.
+
+The entire assignment (both parts A \& B) will be due on May 1st.  As with the previous assignment, you are strongly encouraged to work as a  team, and to turn in a single assignment for grading.   The principal deliverable you turn in should be a link to a \texttt{github} repository, and you should organize your teams so as to provide constructive criticism to other teams.
+\section{Exercises (GMM)}
+\label{sec:orgb1fc826}
+When we approach a new estimation problem from a GMM perspective
+there's a simple set of steps we can follow.
+\begin{itemize}
+\item Describe the parameter space \(B\);
+\item Describe a function \(g_j(b)\) such that \(\E g_j(\beta)=0\);
+\item Describe an estimator for the covariance matrix \(\E g_j(\beta)g_j(\beta)^\T\).
+
+\begin{enumerate}
+\item Explain how the steps outlined above can be used to construct an optimally weighted GMM estimator.
+\item Consider the following models.  For each, provide a causal
+diagram; construct the optimally weighted GMM estimator of
+the unknown parameters (various Greek letters); and give an
+estimator for the covariance matrix of your estimates.  If
+any additional assumptions are required for your estimator
+to be identified please provide these.
+\begin{enumerate}
+\item \(\E\rvy = \mu\); \(\E(\rvy-\mu)^2 = \sigma^2\); \(\E(\rvy-\mu)^3 = 0\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=\E\rvu=0\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=\E\rvu = 0\),
+and \(\E(\rvu^2)=\sigma^2\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with \(\E(\rvX^\T\rvu)=\E\rvu=0\),
+and \(\E(\rvu^2)=e^{X\sigma}\).
+\item \(\rvy = \alpha + \rvX\beta + \rvu\); with
+\(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and \(\E \rv{Z}^\T \rvX = \mQ\).
+\item \(\rvy = f(\rvX\beta) + \rvu\); with \(f\) a known scalar function and with
+\(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and \(\E \rv{Z}^\T \rvX
+         f'(\rvX\beta) = \mQ(\beta)\).  (Bonus question: where does this last restriction come from, and
+what role does it play?)
+\item \(\rvy = f(\rvX,\beta) + \rvu\); with \(f\) a known function and with
+\(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and \(\E \rv{Z}^\T\frac{\partial
+         f}{\partial \beta^\T}(\rvX,\beta) = \mQ(\beta)\).
+\item \(\rvy^\gamma = \alpha + \rvu\), with \(\rvy>0\) and \(\gamma\) a
+scalar, and \(\E(\rv{Z}^\T\rvu)=\E\rvu=0\) and
+\(\E\rv{Z}^\T\begin{bmatrix}\gamma
+         \rvy^{\gamma-1}\\-1\end{bmatrix} =\mQ(\gamma)\).
+\end{enumerate}
+
+\item For each of the models above write a data-generating process in \texttt{python}.  Your function
+\texttt{dgp} should take as arguments a sample size \texttt{N} and a vector of
+``true'' parameters \texttt{b0}, and return a dataset \((y,X)\).
+\item Select the most interesting of the data generating processes you
+developed, and using the code in \texttt{gmm.py} or \texttt{GMM\_class.py} (see
+\url{https://github.com/ligonteaching/ARE212\_Materials/}) use data
+from your \texttt{dgp} to analyze the finite sample performance of the
+corresponding GMM estimator you've constructed.  Of particular
+interest is the distribution of your estimator using a sample
+size \(N\) and how this distribution compares with the limiting
+distribution as \(N\rightarrow\infty\).
+\end{enumerate}
+\end{itemize}
+
+\section{Breusch-Pagan Extended}
+\label{sec:orgb6be17c}
+Consider a linear regression of the form
+\begin{equation}
+   y = \alpha + \beta x + u,
+\end{equation}
+with \((y,x)\) both scalar random variables, where it is assumed that
+(a.i) \(\E(u\cdot x) = \E u = 0\) and (a.ii) \(\E(u^2|x)=\sigma^2\).
+\begin{enumerate}
+\item The condition a.i is essentially untestable; explain why.
+\item \textcite{breusch-pagan79} argue that one can test a.ii via an
+auxiliary regression \(\hat{u}^2 = c + d x + e\), where the \(\hat{u}\)
+are the residuals from the first regression, and the test of a.ii
+then becomes a test of \(H_0:d=0\).   Describe the logic of
+the test of a.ii.
+\item Use the two conditions a.i and a.ii to construct a GMM version of
+the Breusch-Pagan test.
+\item What can you say  about the performance or relative merits of the
+Bruesch-Pagan test versus your GMM alternative?
+\item Suppose that in fact that \(x\) is distributed uniformly over the
+interval \([0,2\pi]\), and \(\E(u^2|x)=\sigma^2(x)=\sigma^2\sin(2x)\), thus
+violating a.ii.  What can you say about the performance of the
+Breusch-Pagan test in this circumstance?  Can you modify your GMM
+test to provide a superior alternative?
+\item In the above, we've considered a test of a specific functional
+form for the variance of \(u\).  Suppose instead that we don't have
+any prior information regarding the form of \(\E(u^2|x)=f(x)\).
+Discuss how you might go about constructing an extended version
+of the Breusch-Pagan test which tests for \(f(x)\) non-constant.
+\item Show that you can use your ideas about estimating \(f(x)\) to
+construct a more efficient estimator of \(\beta\) if \(f(x)\) isn't
+constant.  Relate your estimator to the optimal generalized least
+squares (GLS) estimator.
+\end{enumerate}
+
+\section{Tests of Normality}
+\label{sec:org7798f32}
+Suppose we have a sample of iid observations \(x_1,x_2,\dots,x_N\); we
+want to test whether these are drawn from a normal distribution.
+Note the fact that the integer central moments of the normal
+distribution satisfy
+\begin{align*}
+ \mbox{E} x &= \mu\\
+ \mbox{E}(x-\mu)^m &= 0\qquad\text{$m$ odd}\\
+ \mbox{E}(x-\mu)^m &= \sigma^m(m-1)!!\qquad\text{$m$ even,}
+\end{align*}
+where \(n!!\) is the double factorial, i.e., \(n!!=n(n-2)(n-4)\dots\).
+
+\begin{enumerate}
+\item Using the analogy principle, construct an estimator for the first
+\(k\) moments of the distribution of \(x\).  Use this to define a
+\(k\)-vector of moment restrictions \(g_N(\mu,\sigma)\) satisfying
+\(\mbox{E} g_N(\mu,\sigma) = 0\) under the null hypothesis of normality.
+\item What is the covariance matrix of the sample moment restrictions
+(again under the null)?
+I.e., what can be said about \(\mbox{E} g_j(\mu,\sigma) g_j(\mu,\sigma)^\T - \mbox{E} g_j(\mu,\sigma) \mbox{E} g_j(\mu,\sigma)^\T\)?
+\item Using your answers to the previous two questions, suggest a
+GMM-based test of the hypothesis of normality, taking \(k>2\).
+\item Implement the test you've devised using \texttt{python}.  You may want
+to use \texttt{scipy.stats.distributions.chi2.cdf} and \texttt{scipy.optimize.minimize}.
+\item What can be said about the optimal choice of \(k\)?
+\item Compare the GMM estimates of \((\mu,\sigma)\) to the maximum
+likelihood estimates of these parameters.  Do they differ?  Why?
+\end{enumerate}
+\section{Logit}
+\label{sec:org37b277d}
+This problem is meant to help draw connections between GMM estimators and maximum likelihood estimators, with a particular focus on the 'logit' model.  
+
+The development of a maximum likelihood estimator typically begins with an assumption that some random variable has a (conditional) distribution which is known up a \(k\)-vector of parameters \(\beta\).
+Consider the case in which we observe \(N\) independent realizations of a Bernoulli random variable \(\rv{Y}\), with \(\mbox{Pr}(\rv{Y}=1|X) = \sigma(\beta^\T X)\), and \(\mbox{Pr}(\rv{Y}=0|X) = 1-\sigma(\beta^\T X)\).
+
+\begin{enumerate}
+\item Show that under this model \(\E(\rv{Y}-\sigma(X\beta)|X)=0\).  Assume that \(\sigma\) is a known function, and use this fact to develop a GMM estimator of \(\beta\).  Is your estimator just- or over-identified?
+
+\item Show that the likelihood conditional on realizations of data \((y,X)\) can be written as
+\[    
+            L(\beta|y,X) = \prod_{i=1}^N\sigma(\beta^\T X_i)^{y_i}\left(1-\sigma(\beta^\T X_i)\right)^{1-y_i}.
+       \]
+\item To obtain the maximum likelihood estimator (MLE) one can chose \(b\) to maximize \(\log L(b|y,X)\). When the likelihood is well-behaved, the MLE estimator satisfies the first order conditions (also called the ``scores'') from this maximization problem, in which case this is called a ``type I'' MLE.  Let \(\sigma(z)=\frac{1}{1+e^{-z}}\) (this is sometimes called the logistic function, or the sigmoid function), and obtain the scores \(S_N(b)\) for this estimation problem.  Show that \(\E S_N(\beta) = 0\).  Demonstrate that these moment conditions can serve as the basis for a GMM estimator of \(\beta\), and compare this estimator to the GMM estimator you developed above.  Which is more efficient, and why?
+\end{enumerate}
+
+
+\printbibliography
+\end{document}
