@@ -1,51 +1,49 @@
 
 # Table of Contents
 
-1.  [General Policies](#org9d20a7f)
-    1.  [Grading](#orged59b5c)
-        1.  [Final Exam](#orgc7ff327)
-        2.  [Groups](#org7e800be)
-        3.  [Assignments](#org8df682d)
-    2.  [Readings](#org0e95ce5)
-2.  [Other Resources](#org46d8cb0)
-    1.  [Friday Sections](#orge4e8b16)
-    2.  [HowTos](#org71dfb37)
-3.  [Topics](#org473ab63)
-    1.  [Multiple Equation Models](#orgce200be)
-    2.  [Some Non-parametrics](#orgd67e14e)
-    3.  [Causality & Correlation](#org63dda87)
-    4.  [Identification & Instrumental Variables](#orgcae48ce)
-    5.  [Generalized Method of Moments](#orgf1297c5)
-    6.  [Discrete Choice & Maximum Likelihood](#org19fa82b)
-    7.  [Resampling &  the Bootstrap](#org878d676)
-    8.  [Cross-Validation & Other Ideas from Machine Learning](#orgcd57080)
+1.  [General Policies](#org2d513cf)
+    1.  [Grading](#org0417d00)
+        1.  [Final Exam](#orgf571d14)
+        2.  [Groups](#org8491813)
+        3.  [Assignments](#org3023dc3)
+    2.  [Readings](#org010ae1f)
+2.  [Other Resources](#orgca437e8)
+    1.  [Friday Sections](#orgc72a888)
+    2.  [HowTos](#orgb82cfc3)
+3.  [Topics](#org4625af9)
+    1.  [Multiple Equation Models](#orgf5e9123)
+    2.  [Some Non-parametrics](#orgc32d9cf)
+    3.  [Causality & Correlation](#org1ed6145)
+    4.  [Identification & Instrumental Variables](#orgb68d8c9)
+    5.  [Generalized Method of Moments](#org15ad60c)
+    6.  [Discrete Choice & Maximum Likelihood](#org94b59c8)
+    7.  [Resampling &  the Bootstrap](#orgcf56799)
+    8.  [Cross-Validation & Other Ideas from Machine Learning](#org716c864)
 
 For class-related conversations, please go to [edstem.org](https://edstem.org/us/courses/37769/).
 
 
-<a id="org9d20a7f"></a>
+<a id="org2d513cf"></a>
 
 # General Policies
 
-Discussion of administrative issues: [[video](https://drive.google.com/file/d/1lrcl99dxnaH2APiQ7d5EwppcpMbhpM8-)]
 
-
-<a id="orged59b5c"></a>
+<a id="org0417d00"></a>
 
 ## Grading
 
 
-<a id="orgc7ff327"></a>
+<a id="orgf571d14"></a>
 
 ### Final Exam
 
-The final exam will be &ldquo;take-home&rdquo;, and be made available by 11am on
-Tuesday, May 9 (if there is a **consensus** that an earlier date is
+The final exam will be &ldquo;take-home&rdquo;, and be made available by 11am on the day [scheduled for the final by campus](https://registrar.berkeley.edu/scheduling/academic-scheduling/academic-scheduling-final-exam-guide-and-schedules/)
+(if there is a **consensus** that an earlier date is
 preferable then we can reschedule).  You will have 24 hours to
 complete the final.
 
 
-<a id="org7e800be"></a>
+<a id="org8491813"></a>
 
 ### Groups
 
@@ -54,7 +52,7 @@ group will be responsible for working together on certain
 assignments.  Group sizes should be between 3&#x2013;6 (inclusive).
 
 
-<a id="org8df682d"></a>
+<a id="org3023dc3"></a>
 
 ### Assignments
 
@@ -72,20 +70,20 @@ We will ask you to complete an assignment every 2&#x2013;3 weeks.  We expect you
     *Problems* are meant less as checks on comprehension and more the part of the assignment that involves more critical thinking.  &ldquo;Problems&rdquo; may not have a &ldquo;right&rdquo; answer (though there will always be many wrong answers).
 
 
-<a id="org0e95ce5"></a>
+<a id="org010ae1f"></a>
 
 ## Readings
 
--   &ldquo;Hansen&rdquo; refers to Bruce Hansen&rsquo;s [Econometrics Textbook](https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf).  This was recently published by Princeton University Press, and belongs on your bookshelf.
+-   &ldquo;Hansen&rdquo; refers to Bruce Hansen&rsquo;s [Econometrics Textbook](https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf).  This was recently published by Princeton University Press, and belongs on your bookshelf.  Hansen was generous in sharing drafts of his manuscript on-line, and if you don&rsquo;t yet have a hard copy you should be able to find one of these.
 -   Other readings will be added topic by topic (usually these will be available electronically).
 
 
-<a id="org46d8cb0"></a>
+<a id="orgca437e8"></a>
 
 # Other Resources
 
 
-<a id="orge4e8b16"></a>
+<a id="orgc72a888"></a>
 
 ## Friday Sections
 
@@ -96,60 +94,56 @@ It&rsquo;s critical to note that we expect you to develop some fluency in
 the programming language `python`.  
 
 
-<a id="org71dfb37"></a>
+<a id="orgb82cfc3"></a>
 
 ## HowTos
 
--   **GitHub:** How to view, files, fork, edit, and issue pull requests
-    (PRs).  <https://youtu.be/krDQk5ZzP8U>
--   **GitHub to DataHub:** How to use datahub to run & edit code from
-    github:  <https://youtu.be/HBM8jgvYPtA>
 -   **Python Bootcamp:** [[datahub](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Facwatt%2Fare212-bootcamp&urlpath=retro%2Ftree%2Fare212-bootcamp%2F)][[github](https://github.com/acwatt/are212-bootcamp)]
 
 
-<a id="org473ab63"></a>
+<a id="org4625af9"></a>
 
 # Topics
 
-Discussion of topics for 2nd half of course: [[video](https://drive.google.com/file/d/1MmyeW71lNVixYoXcuJTHjdBk-Fu7kpq_)]
+Discussion of topics for 2nd half of course:
 
 
-<a id="orgce200be"></a>
+<a id="orgf5e9123"></a>
 
 ## Multiple Equation Models
 
 
-<a id="orgd67e14e"></a>
+<a id="orgc32d9cf"></a>
 
 ## Some Non-parametrics
 
 
-<a id="org63dda87"></a>
+<a id="org1ed6145"></a>
 
 ## Causality & Correlation
 
 
-<a id="orgcae48ce"></a>
+<a id="orgb68d8c9"></a>
 
 ## Identification & Instrumental Variables
 
 
-<a id="orgf1297c5"></a>
+<a id="org15ad60c"></a>
 
 ## Generalized Method of Moments
 
 
-<a id="org19fa82b"></a>
+<a id="org94b59c8"></a>
 
 ## Discrete Choice & Maximum Likelihood
 
 
-<a id="org878d676"></a>
+<a id="orgcf56799"></a>
 
 ## Resampling &  the Bootstrap
 
 
-<a id="orgcd57080"></a>
+<a id="org716c864"></a>
 
 ## Cross-Validation & Other Ideas from Machine Learning
 
