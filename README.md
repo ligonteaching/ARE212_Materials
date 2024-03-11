@@ -1,39 +1,37 @@
 
 # Table of Contents
 
-1.  [General Policies](#org2d513cf)
-    1.  [Grading](#org0417d00)
-        1.  [Final Exam](#orgf571d14)
-        2.  [Groups](#org8491813)
-        3.  [Assignments](#org3023dc3)
-    2.  [Readings](#org010ae1f)
-2.  [Other Resources](#orgca437e8)
-    1.  [Friday Sections](#orgc72a888)
-    2.  [HowTos](#orgb82cfc3)
-3.  [Topics](#org4625af9)
-    1.  [Multiple Equation Models](#orgf5e9123)
-    2.  [Some Non-parametrics](#orgc32d9cf)
-    3.  [Causality & Correlation](#org1ed6145)
-    4.  [Identification & Instrumental Variables](#orgb68d8c9)
-    5.  [Generalized Method of Moments](#org15ad60c)
-    6.  [Discrete Choice & Maximum Likelihood](#org94b59c8)
-    7.  [Resampling &  the Bootstrap](#orgcf56799)
-    8.  [Cross-Validation & Other Ideas from Machine Learning](#org716c864)
+1.  [General Policies](#orgd4be4e5)
+    1.  [Grading](#orgc1c0a75)
+        1.  [Final Exam](#org9a7b9af)
+        2.  [Groups](#org7361c5d)
+        3.  [Assignments](#org5fff9b1)
+    2.  [Readings](#orged12f8d)
+2.  [Python](#orgd34ca98)
+3.  [Topics](#org9ee3532)
+    1.  [Multiple Equation Models](#orgab8f725)
+    2.  [Some Non-parametrics](#org1914027)
+    3.  [Causality & Correlation](#orge7f69c0)
+    4.  [Identification & Instrumental Variables](#org2f9ede6)
+    5.  [Generalized Method of Moments](#org17317a1)
+    6.  [Discrete Choice & Maximum Likelihood](#org9fa6cc9)
+    7.  [Resampling &  the Bootstrap](#orge7c5650)
+    8.  [Cross-Validation & Other Ideas from Machine Learning](#org2c39993)
 
 For class-related conversations, please go to [edstem.org](https://edstem.org/us/courses/37769/).
 
 
-<a id="org2d513cf"></a>
+<a id="orgd4be4e5"></a>
 
 # General Policies
 
 
-<a id="org0417d00"></a>
+<a id="orgc1c0a75"></a>
 
 ## Grading
 
 
-<a id="orgf571d14"></a>
+<a id="org9a7b9af"></a>
 
 ### Final Exam
 
@@ -43,7 +41,7 @@ preferable then we can reschedule).  You will have 24 hours to
 complete the final.
 
 
-<a id="org8491813"></a>
+<a id="org7361c5d"></a>
 
 ### Groups
 
@@ -52,7 +50,7 @@ group will be responsible for working together on certain
 assignments.  Group sizes should be between 3&#x2013;6 (inclusive).
 
 
-<a id="org3023dc3"></a>
+<a id="org5fff9b1"></a>
 
 ### Assignments
 
@@ -70,7 +68,7 @@ We will ask you to complete an assignment every 2&#x2013;3 weeks.  We expect you
     *Problems* are meant less as checks on comprehension and more the part of the assignment that involves more critical thinking.  &ldquo;Problems&rdquo; may not have a &ldquo;right&rdquo; answer (though there will always be many wrong answers).
 
 
-<a id="org010ae1f"></a>
+<a id="orged12f8d"></a>
 
 ## Readings
 
@@ -78,72 +76,57 @@ We will ask you to complete an assignment every 2&#x2013;3 weeks.  We expect you
 -   Other readings will be added topic by topic (usually these will be available electronically).
 
 
-<a id="orgca437e8"></a>
+<a id="orgd34ca98"></a>
 
-# Other Resources
+# Python
 
-
-<a id="orgc72a888"></a>
-
-## Friday Sections
-
-Lucy Hackett will hold weekly sections on Fridays.  She&rsquo;ll present
-material pertaining to both econometrics and programming.
-
-It&rsquo;s critical to note that we expect you to develop some fluency in
-the programming language `python`.  
+It&rsquo;s critical to note that we expect you to have or develop some fluency in
+the programming language `python`.   There are copious useful on-line resources for this; the [D-lab](https://dlab.berkeley.edu/training/upcoming-workshops) offers frequent workshops and consulting; and Aaron Watt & Lucy Hackett have developed an ARE212 specific Python Bootcamp ([[datahub](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Facwatt%2Fare212-bootcamp&urlpath=retro%2Ftree%2Fare212-bootcamp%2F)][[github](https://github.com/acwatt/are212-bootcamp)]).
 
 
-<a id="orgb82cfc3"></a>
-
-## HowTos
-
--   **Python Bootcamp:** [[datahub](https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Facwatt%2Fare212-bootcamp&urlpath=retro%2Ftree%2Fare212-bootcamp%2F)][[github](https://github.com/acwatt/are212-bootcamp)]
-
-
-<a id="org4625af9"></a>
+<a id="org9ee3532"></a>
 
 # Topics
 
 Discussion of topics for 2nd half of course:
 
 
-<a id="orgf5e9123"></a>
+<a id="orgab8f725"></a>
 
 ## Multiple Equation Models
 
 
-<a id="orgc32d9cf"></a>
+<a id="org1914027"></a>
 
 ## Some Non-parametrics
 
 
-<a id="org1ed6145"></a>
+<a id="orge7f69c0"></a>
 
 ## Causality & Correlation
 
 
-<a id="orgb68d8c9"></a>
+<a id="org2f9ede6"></a>
 
 ## Identification & Instrumental Variables
 
 
-<a id="org15ad60c"></a>
+<a id="org17317a1"></a>
 
 ## Generalized Method of Moments
 
 
-<a id="org94b59c8"></a>
+<a id="org9fa6cc9"></a>
 
 ## Discrete Choice & Maximum Likelihood
 
 
-<a id="orgcf56799"></a>
+<a id="orge7c5650"></a>
 
 ## Resampling &  the Bootstrap
 
 
-<a id="org716c864"></a>
+<a id="org2c39993"></a>
 
 ## Cross-Validation & Other Ideas from Machine Learning
 
