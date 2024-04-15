@@ -1,4 +1,4 @@
-% Created 2024-04-01 Mon 09:00
+% Created 2024-04-10 Wed 07:28
 % Intended LaTeX compiler: pdflatex
 \RequirePackage{rotating}
 \documentclass[12pt]{amsart}
@@ -59,7 +59,7 @@
 \maketitle
 You are strongly encouraged to work as a  team, and to turn in a single assignment for grading.   The principal deliverable you turn in should be a link to a \texttt{github} repository.  Please complete work on \textbf{four} of the following six sections, your choice (but all of this material is fair game for the final).
 \section{Exercises (Identifying assumptions for regression)}
-\label{sec:org68430f5}
+\label{sec:org03f8784}
 
 \begin{enumerate}
 \item Evaluate the truth of following statement: ``In the linear regression \(y=X\beta + u\) the usual identifying assumption \(\E(u|X)=0\) (call this an assumption of ''mean independence``) implies \(\E(h(X)\cdot u)=0\) for any function \(h\) satisfying some regularity conditions related to measurability.''
@@ -77,7 +77,7 @@ You are strongly encouraged to work as a  team, and to turn in a single assignme
 \item Write out the two causal diagrams which justify, respectively, the least squares estimator and the IV estimator.  What would it mean for one model to be correct, but not the other?  How could you test this?
 \end{enumerate}
 \section{Wright (1928)}
-\label{sec:org07d75c7}
+\label{sec:org0c9752d}
 \nocite{wright1928}
   Consider the canonical demand and supply model in which quantity
   supplied is a function of price and a set of ``supply shifters'';
@@ -101,7 +101,7 @@ Consider the following questions:
 Answers could be mathematical expressions, or code that answers the
 question for the model given in the Jupyter notebook.
 \section{``Plausibly Exogenous''}
-\label{sec:orga17caae}
+\label{sec:org2b67cbc}
 
 The Wright (1934) model we've described takes the form
 \begin{equation}
@@ -146,7 +146,7 @@ reject the same null hypothesis at the same level of significance.
 Discuss.
 \end{enumerate}
 \section{Weak Instruments}
-\label{sec:orgb24d781}
+\label{sec:org44cc92a}
 This problem explores the problem of weak instruments.  The basic setup should be familiar, with
 \begin{dgroup}
 \begin{dmath*}
@@ -173,7 +173,7 @@ Note that we've assumed that \(x\) is a scalar random variable, and that \(Z\) i
 \end{enumerate}
 \end{enumerate}
 \section{A Simple Approach to Inference with Weak Instruments}
-\label{sec:org437f4a0}
+\label{sec:orga2a30b2}
 \textcite{chernozhukov-hansen08} propose a very simple way to handle inference in a linear IV model, even in the case in which instruments are many and/or weak.  This problem explores the problem of weak instruments, and their method of inference.  The basic setup should be identical to the above, with
 \begin{dgroup}
 \begin{dmath*}
@@ -205,7 +205,7 @@ The key is that if \(\beta_0=\beta\), then we will have \(\gamma=0\).  So the id
 \item Using the same construction of ``many instruments'' as in the previous question, how does the coverage of your test change as \(\ell\) grows large?  Again, compare with 2SLS.
 \end{enumerate}
 \section{Angrist-Krueger (1991) Replication}
-\label{sec:orgef4d20d}
+\label{sec:org4211778}
 You'll find \href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/angrist-krueger91.dta}{data} from a famous paper by \textcite{angrist-krueger91} in
 the ARE212\_Materials repository, along with a \href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/angrist\_krueger91.pdf}{pdf} of the paper.  The
 paper uses information on ``quarter of birth'' as an instrument for
