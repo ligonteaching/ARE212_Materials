@@ -1,4 +1,4 @@
-% Created 2023-03-29 Wed 15:29
+% Created 2024-03-10 Sun 19:19
 % Intended LaTeX compiler: pdflatex
 \RequirePackage{rotating}
 \documentclass[12pt]{amsart}
@@ -18,6 +18,7 @@
 \renewcommand{\Pr}{\ensuremath{\mbox{Pr}}}
 \newcommand{\Eq}[1]{(\ref{eq:#1})}
 \usepackage{bm}\usepackage{econometrics}
+\usepackage{breqn}
 \newcommand{\T}{\top}
 \newtheorem{proposition}{Proposition} \newcommand{\Prop}[1]{Proposition \ref{prop:#1}}
 %\newtheorem{problem}{Problem} \newcommand{\Prob}[1]{Problem \ref{prob:#1}}
@@ -37,35 +38,35 @@
 \newcommand{\rvX}{\rv{X}}
 \newcommand{\rvx}{\rv{x}}
 \newcommand{\rvu}{\rv{u}}
-\renewcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
+\newcommand{\do}[1]{\ensuremath{\mbox{do}(#1)}}
 \renewcommand{\E}{\ensuremath{\mathds{E}}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \author{Ethan Ligon}
-\date{Due April 3, 2023}
+\date{Due March 22, 2024}
 \title{Assignment 1}
 \hypersetup{
  pdfauthor={Ethan Ligon},
  pdftitle={Assignment 1},
  pdfkeywords={},
  pdfsubject={},
- pdfcreator={Emacs 29.0.50 (Org mode 9.6)}, 
+ pdfcreator={Emacs 29.1 (Org mode 9.7)}, 
  pdflang={English}}
-\usepackage[style=authoryear]{biblatex}
+\usepackage[style=apa]{biblatex}
 \addbibresource{/home/ligon/bibtex/main.bib}
 \begin{document}
 
 \maketitle
 You should complete all exercises.   You are strongly encouraged to work as a  team, and to turn in a single assignment for grading.   The principal deliverable you turn in should be a pdf.
 \section{Admin}
-\label{sec:orge0c0d69}
+\label{sec:org5b3867c}
 Some steps to help us share code via \texttt{git}:
 \begin{enumerate}
 \item Your team should ``fork'' the repository \url{https://github.com/ligonteaching/ARE212\_Materials}, and each  team member should have ``write'' access to the repo.
 \item When submitting code for assignments, please provide links to that code in the pdf.
 \end{enumerate}
 \section{Exercises}
-\label{sec:orge9ea08a}
+\label{sec:org1f74800}
 \begin{enumerate}
 \item From ARE210, recall (Section 9 in Mahajan's ``Handout 1'') the rule for
 computing the distribution of certain transformations of random
@@ -156,9 +157,8 @@ Provided only that \(r>0\), the Moore-Penrose inverse \(\mA^+ = \mR^{\T}(\mL^{\T
 \item Show  that if \(\mX\) has full column rank, then \(\mX^+=(\mX^\T\mX)^{-1}\mX^\T\) (this is sometimes called the ``left inverse), and \(\mX^+\mX=\mI\).
 \item Use the result of (2) to solve for \(\vb\) in the (matrix) form of the regression  \(\vy = \mX b + \vu\) if \(\mX^{\T}\vu=0\).
 \end{enumerate}
-
 \section{Convolutions}
-\label{sec:orge40bd9e}
+\label{sec:org29a4159}
 We've discussed ways to program a convolution of random variables in a
 Jupyter notebook [\href{https://github.com/ligonteaching/ARE212\_Materials/blob/master/random\_variables0.ipynb)}{ipynb}] [\href{http://datahub.berkeley.edu/user-redirect/interact?account=ligonteaching\&repo=ARE212\_Materials\&branch=master\&path=random\_variables0.ipynb}{datahub}].
 
@@ -178,15 +178,14 @@ convolutions of independent discrete random variables?
 \item Same as (2), but convolutions of independent continuous random variables?
 \end{enumerate}
 \section{General Weighted Linear Regressions}
-\label{sec:orgb9a2ace}
+\label{sec:orga6f2885}
 List the main regression estimators you encountered in the first half of the class.  For each estimator, establish whether it belongs to the class of general weighted linear regressions
 \begin{equation}
    T'Y = T'X\beta + T'u.
 \end{equation}
 For the estimator you've listed, if it is a general weighted linear regression then what is the form of \(T\)?  Is \(T\) random?  If the estimator is \emph{not} in this class, show why.
-
 \section{Simultaneous Equations}
-\label{sec:org3e74bc1}
+\label{sec:orge3e9cef}
 When we defined the general weighted regression, we didn't assume
 anything about the \textbf{dimension} of the different objects except that
 they were 'conformable.'
@@ -210,7 +209,7 @@ estimate \(\beta\) in the case with \(k=3\).
 distribution of the estimator of \(\beta\)?
 \end{enumerate}
 \section{SUR}
-\label{sec:orgd220e1f}
+\label{sec:org6d026f8}
 Picking up from the discussion of simultaneous equations above, where
 \(y\) is \(N\times k\), and
 \begin{equation}
@@ -236,9 +235,8 @@ general covariance matrix such as \(\Omega\), and let \(X=T\). Estimate \(\beta\
 what one would obtain if one estimated equation by equation using
 OLS?
 \end{enumerate}
-
 \section{Food expenditures in India}
-\label{sec:orgdb42c33}
+\label{sec:org24af5ae}
 The NSS surveys in India pioneered (in considerable part due to
 Mahalanobis) a wide variety of methodological innovations in
 sampling, questionnaire design, and have been
@@ -270,9 +268,8 @@ of \emph{log} expenditures?  Write code to produce this figure.
 bandwidth to estimate the density of log expenditures directly.
 How do the approaches of (2) and (3) compare?
 \end{enumerate}
-
 \section{``Plug-in'' Kernel Bias Estimator}
-\label{sec:orge35182f}
+\label{sec:org7685f79}
 
 In our discussion of bias of the kernel density estimator in lecture we
 constructed an ``Oracle'' estimator, which can be implemented when we
