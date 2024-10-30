@@ -4,12 +4,11 @@
 For class-related conversations, please go to [[https://edstem.org/us/courses/37769/][edstem.org]].
 
 * General Policies
-  Discussion of administrative issues: [[[https://drive.google.com/file/d/1lrcl99dxnaH2APiQ7d5EwppcpMbhpM8-][video]]]
 
 ** Grading
 *** Final Exam
-    The final exam will be "take-home", and be made available by 11am on
-    Tuesday, May 9 (if there is a *consensus* that an earlier date is
+    The final exam will be "take-home", and be made available by 11am on the day [[https://registrar.berkeley.edu/scheduling/academic-scheduling/academic-scheduling-final-exam-guide-and-schedules/][scheduled for the final by campus]]
+    (if there is a *consensus* that an earlier date is
     preferable then we can reschedule).  You will have 24 hours to
     complete the final.
 
@@ -19,37 +18,28 @@ For class-related conversations, please go to [[https://edstem.org/us/courses/37
     assignments.  Group sizes should be between 3--6 (inclusive).
 
 *** Assignments
+The point of the assignments is about learning to think critically about issues involving economics, estimation, and inference.
+
 We will ask you to complete an assignment every 2--3 weeks.  We expect you to work on these with others in your group.  Your *group* should turn in /one/ set of notes and proposed solutions.  The problem sets will feature two different kinds of problems.
 **** Exercises
 These are called /exercises/ because they are meant more as tests of comprehension
-than as more difficult /problems/.  Exercises will be graded on a "check", "check +", "check -" system.
-
-Not completing an exercise will be much worse for the grades of people in your group than receiving a "check -".
+than as more difficult /problems/.
 
 **** Problems
 /Problems/ are meant less as checks on comprehension and more the part of the assignment that involves more critical thinking.  "Problems" may not have a "right" answer (though there will always be many wrong answers).
+**** Discussion
+Rather than grading the assignments, we'll find a time to have a structured discussion of the exercises and problems.  At least one member of each group should come to the discussion prepared to present and defend your group's proposed solutions to each exercise & problem before the class.
 
 ** Readings
-  - "Hansen" refers to Bruce Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].  This was recently published by Princeton University Press, and belongs on your bookshelf.
+  - "Hansen" refers to Bruce Hansen's [[https://www.ssc.wisc.edu/~bhansen/econometrics/Econometrics.pdf][Econometrics Textbook]].  This was recently published by Princeton University Press, and belongs on your bookshelf.  Hansen was generous in sharing drafts of his manuscript on-line, and if you don't yet have a hard copy you should be able to find one of these.
   - Other readings will be added topic by topic (usually these will be available electronically).
 
-* Other Resources
-** Friday Sections
-   Lucy Hackett will hold weekly sections on Fridays.  She'll present
-   material pertaining to both econometrics and programming.
-
-   It's critical to note that we expect you to develop some fluency in
-   the programming language =python=.  
-
-** HowTos
-   - GitHub :: How to view, files, fork, edit, and issue pull requests
-     (PRs).  https://youtu.be/krDQk5ZzP8U
-   - GitHub to DataHub :: How to use datahub to run & edit code from
-     github:  https://youtu.be/HBM8jgvYPtA
-   - Python Bootcamp :: [[[https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Facwatt%2Fare212-bootcamp&urlpath=retro%2Ftree%2Fare212-bootcamp%2F][datahub]]][[[https://github.com/acwatt/are212-bootcamp][github]]]
+* Python
+   It's critical to note that we expect you to have or develop some fluency in
+   the programming language =python=.   There are copious useful on-line resources for this; the [[https://dlab.berkeley.edu/training/upcoming-workshops][D-lab]] offers frequent workshops and consulting; and Aaron Watt & Lucy Hackett have developed an ARE212 specific Python Bootcamp ([[[https://datahub.berkeley.edu/hub/user-redirect/git-pull?repo=https%3A%2F%2Fgithub.com%2Facwatt%2Fare212-bootcamp&urlpath=retro%2Ftree%2Fare212-bootcamp%2F][datahub]]][[[https://github.com/acwatt/are212-bootcamp][github]]]).
 
 * Topics
-   Discussion of topics for 2nd half of course: [[https://drive.google.com/file/d/1MmyeW71lNVixYoXcuJTHjdBk-Fu7kpq_][[video]]]
+   Discussion of topics for 2nd half of course:
 ** Multiple Equation Models
 ** Some Non-parametrics
 ** Causality & Correlation
